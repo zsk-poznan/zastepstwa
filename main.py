@@ -10,16 +10,16 @@ def index():
 def zastepstwa():
     teachers = [
         {
-            'name': 'Marek Nowak',
-            'lesson': 'EDB'
+            'lesson': 'Marek Nowak',
+            'teacher': 'EDB'
         },
         {
-            'name': 'Norber Mocek',
-            'lesson': 'Geografia'
+            'lesson': 'Marek Nowak',
+            'teacher': 'EDB'
         },
-                {
-            'name': 'XYZ',
-            'lesson': 'WF'
+        {
+            'lesson': 'Marek Nowak',
+            'teacher': 'EDB'
         }
         ]   
     return render_template("zastepstwa.html", teachers=teachers)
