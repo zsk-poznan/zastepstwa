@@ -3,10 +3,11 @@
         <title>Zastepstwa</title>
     </head>
     <body>
-        {% for teacher in teachers %}
-        <div><p>{{ teacher.lesson }}</p></div>
-        <div><p>{{ teacher.teacher }}</p></div>
-        --------------------------------------
-        {% endfor %}
+            <ul>
+                {% for teacher in teachers %}
+                    <li><a href="/nauczyciel?name={{ teacher }}">{{ teacher }}</li>
+                    {{ teachers[teacher] }}
+                {% endfor %}
+            </ul>
     </body>
 </html>

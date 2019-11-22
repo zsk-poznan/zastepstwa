@@ -1,4 +1,5 @@
 from flask import Flask, escape, request, render_template
+import get_data
 
 app = Flask(__name__)
 
@@ -8,21 +9,14 @@ def index():
 
 @app.route('/zastepstwa')
 def zastepstwa():
-    teachers = [
-        {
-            'lesson': 'Marek Nowak',
-            'teacher': 'EDB'
-        },
-        {
-            'lesson': 'Marek Nowak',
-            'teacher': 'EDB'
-        },
-        {
-            'lesson': 'Marek Nowak',
-            'teacher': 'EDB'
-        }
-        ]   
+    teachers = get_data.main()
     return render_template("zastepstwa.html", teachers=teachers)
+
+@app.route('/nauczyciel', methods=['GET'])
+def nauczyciel():
+    teachers = get_data.main()
+    teacher = request.args.get("name")
+    return render_template("nauczyciel.html", teachers=teachers, teacher=teacher)
 
 @app.route('/komunikaty')
 def komunikaty():
