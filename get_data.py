@@ -1,20 +1,21 @@
+import json
 from lxml import etree
+
 s = open("zastepstwa.html", "r")
 table = etree.HTML(s.read()).find("body/table")
-rows = iter(table)
-headers = [col.text for col in next(rows)]
-teachers, lessons = [], []
-i = 0
+
+rows = list(table)
+del rows[:2]
+
+replacements = {}
+
 for row in rows:
-    values = [col.text for col in row]
-    print(values)
-    lessons.append(values[i])
-    teachers.append(values[i])
-    i=+1
+    lesson_info = [col.text for col in row]
+    teacher = lesson_info.pop(1)
+    if teacher not in replacements:
+        replacements[teacher] = [lesson_info]
+    else:
+        replacements[teacher].append(lesson_info)
 
-n = 0
 
-fields = {"teacher": teachers, "lesson": lessons}
-#print(fields["teacher"][1:])
-#print(fields["lesson"][1:])
-
+print(json.dumps(replacements))
