@@ -16,7 +16,7 @@ def zastepstwa():
 def nauczyciel():
     teachers = get_data.main()
     teacher = request.args.get("name")
-    return render_template("nauczyciel.html", teachers=teachers, teacher=teacher)
+    return render_template("nauczyciel.html", teachers=teachers, teacher=teacher, len=len, i=0)
 
 @app.route('/komunikaty')
 def komunikaty():

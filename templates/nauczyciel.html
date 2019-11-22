@@ -4,8 +4,14 @@
     </head>
     <body>
         <ul>
-            {{ teacher }}
-            {{ teachers[teacher] }}
+            {{ teacher }}</br>
+            <ul>
+            {% for i in range(len(teachers[teacher])) %}
+                <li>Lekcja: {{ teachers[teacher][i][0] }} Nauczyciel: {{ teachers[teacher][i][1] }} Oddział: {{ teachers[teacher][i][3] }} Przedmiot: {{ teachers[teacher][i][3] }} Sala: {{ teachers[teacher][i][4] }} Uwagi: {{ teachers[teacher][i][5] }}</li>
+            {% endfor %}
+            </ul>
+            <a href="/">Główna strona</a>
+            <a href="/zastepstwa">Zastępstwa</a>
         </ul>
     </body>
 </html>
