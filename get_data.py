@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+
 import json
 from lxml import etree
+import codecs
 
 def main():
-    s = open("zastepstwa.html", "r")
+    s = codecs.open("zastepstwa.html", "r", "utf-8")
     table = etree.HTML(s.read()).find("body/table")
 
     rows = list(table)
@@ -18,8 +21,5 @@ def main():
         else:
             replacements[teacher].append(lesson_info)
 
-
-    #print(json.dumps(replacements))
-    print(replacements)
     return(replacements)
     
