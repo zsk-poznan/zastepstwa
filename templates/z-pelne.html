@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Zastepstwa</title>
+    </head>
+    <body>
+        <a href="/">Główna strona</a>
+        <table>  
+            <tr>
+                <th>Lekcja</th>
+                <th>Nauczyciel</th>
+                <th>Oddział</th>
+                <th>Przedmiot</th>
+                <th>Sala</th>
+                <th>Zastępca</th>
+                <th>Uwagi</th>
+              </tr>
+                {% for teacher in teachers %}
+                        {% for i in range(len(teachers[teacher])) %}
+                        <tr>
+                            <td>{{ teachers[teacher][i][0] }}</td>
+                            <td>{{ teachers[teacher][i][1] }}</td>
+                            <td>{{ teachers[teacher][i][2] }}</td> 
+                            <td>{{ teachers[teacher][i][3] }}</td>
+                            <td>{{ teachers[teacher][i][4] }}</td>
+                            <td>{{ teacher }}</td>
+                            <td>{{ teachers[teacher][i][5] }}</td>
+                        </tr>
+                        {% endfor %}
+                {% endfor %}
+        </table>
+    </body>
+</html>

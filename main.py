@@ -10,7 +10,12 @@ def index():
 @app.route('/zastepstwa')
 def zastepstwa():
     teachers = get_data.main()
-    return render_template("zastepstwa.html", teachers=teachers)
+    return render_template("z.html", teachers=teachers)
+
+@app.route('/zastepstwa-pelne')
+def zastepstwa_original():
+    teachers = get_data.main()
+    return render_template("z-pelne.html", teachers=teachers, i=0, len=len)
 
 @app.route('/nauczyciel', methods=['GET'])
 def nauczyciel():
