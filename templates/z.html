@@ -3,6 +3,8 @@
         <title>Zastepstwa</title>
     </head>
     <body>
+            <img style ="max-width: 100%; max-height: 100%;" src= "/static/head.png">
+            <a href="/"><img style ="max-width: 15%; max-height: 15%;position:absolute;top: 9%;left: 2%" src= "/static/back.png"></a>
             <ul>
                 {% for teacher in teachers %}
                     <li><a href="/nauczyciel?name={{ teacher }}">{{ teacher }}</li>
