@@ -8,8 +8,6 @@ def main():
     s = codecs.open("/zastepstwa.html", "r", "utf-8")
     table = etree.HTML(s.read()).find("body/table")
 
-    
-
     rows = list(table)
     del rows[:2]
 
