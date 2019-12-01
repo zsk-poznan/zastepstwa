@@ -5,8 +5,8 @@ from lxml import etree
 import codecs
 
 def main():
-    s = codecs.open("/zastepstwa.html", "r", "utf-8")
-    table = etree.HTML(s.read()).find("body/table")
+    s = codecs.open("Zastępstwa.html", "r", "utf-8")
+    table = etree.HTML(s.read()).find("body/table/tbody")
 
     rows = list(table)
     del rows[:2]
@@ -20,9 +20,8 @@ def main():
             replacements[teacher] = [lesson_info]
         else:
             replacements[teacher].append(lesson_info)
-
+            
     return(replacements)
 
 
-
-    
+main()
