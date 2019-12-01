@@ -6,10 +6,10 @@ import codecs
 
 def main():
     s = codecs.open("Zastępstwa.html", "r", "utf-8")
-    table = etree.HTML(s.read()).find("body/table/tbody")
+    table = etree.HTML(s.read()).find("body/table/tbody") # on Windows we have to use "body/table" without /tbody
 
     rows = list(table)
-    del rows[:2]
+    del rows[:2] # deletes useless two first lines
 
     replacements = {}
 
@@ -22,6 +22,3 @@ def main():
             replacements[teacher].append(lesson_info)
             
     return(replacements)
-
-
-main()
