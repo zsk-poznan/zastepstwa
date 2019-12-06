@@ -5,7 +5,7 @@ from lxml import etree
 import codecs
 
 def main():
-    s = codecs.open("Zastępstwa.html", "r", "utf-8")
+    s = codecs.open("Zastępstwa.html", "r", "utf-8") # Zastępstwa.html in main folder
     table = etree.HTML(s.read()).find("body/table/tbody") # on Windows we have to use "body/table" without /tbody
 
     rows = list(table)
