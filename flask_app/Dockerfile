@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 RUN pip3 install --upgrade pip
 RUN pip3 install -r dev_requirements.txt
-RUN apt-get remove --purge g++
+RUN apt-get remove -y --purge g++
 
 ENV FLASK_APP main.py
 ENV FLASK_ENV development
