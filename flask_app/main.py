@@ -33,3 +33,7 @@ def nauczyciel():
 @app.route("/komunikaty")
 def komunikaty():
     return render_template("komunikaty.html")
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0")
