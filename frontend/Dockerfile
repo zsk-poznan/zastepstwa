@@ -1,10 +1,6 @@
-FROM raspbian/stretch
+FROM node:10-alpine
 
 WORKDIR /app
-
-RUN apt-get update && apt-get install -y \
-        nodejs \
-    && rm -rf /var/lib/apt/lists/*
 
 ADD package*.json ./
 
