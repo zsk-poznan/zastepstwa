@@ -7,10 +7,6 @@ WORKDIR /app
 COPY *requirements.txt ./
 
 RUN apt-get update && apt-get install -y \
-        g++ \
-        libxml2 \
-        libxml2-dev \
-        libxslt-dev \
         python3 \
         python3-pip \
     && rm -rf /var/lib/apt/lists/*

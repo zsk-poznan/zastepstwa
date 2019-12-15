@@ -24,4 +24,3 @@ def main():
         else:
             replacements[teacher].append(lesson_info)
     return replacements
-
