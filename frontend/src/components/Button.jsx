@@ -12,7 +12,10 @@ const ButtonWrapper = styled.button`
 
   margin: 10px;
 
-  &:hover,
+  &:hover {
+    background: #5d6e88;
+  }
+
   &:focus {
     background: #6d7e98;
   }
