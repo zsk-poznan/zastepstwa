@@ -13,13 +13,13 @@ const HeaderWrapper = styled.header`
 `;
 
 const ImageWrapper = styled.img`
-  height: 40px;
+  height: 60px;
 `;
 
 const Header = () => (
   <HeaderWrapper>
     <ImageWrapper src={logo} alt="ZSK" />
-    <h2>Zastępstwa</h2>
+    <h1>Zastępstwa</h1>
   </HeaderWrapper>
 );
 
