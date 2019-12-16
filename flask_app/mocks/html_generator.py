@@ -1,3 +1,4 @@
+import codecs
 import names
 from jinja2 import Template
 
@@ -10,7 +11,7 @@ TEACHERS = [names.get_full_name() for i in range(10)]
 
 
 def render(subs):
-    with open("mocks/template.html") as f:
+    with codecs.open("mocks/template.html", "r", "utf-8") as f:
         template = Template(f.read())
 
     return template.render(subs=subs)
