@@ -6,17 +6,17 @@ from random import choice, randint
 GROUPS = ["3E", "1C|N1", "1GB", "2Z", "1A", "4D", "2A|1/2"]
 LESSONS = ["Niemiecki", "Programowanie", "Fajny przedmiot", "Zażółć"]
 ROOMS = [str(randint(20, 40)) for i in range(20)] + ["SG1", "@"]
-TEACHERS = [names.get_full_name() for i in range(20)]
+TEACHERS = [names.get_full_name() for i in range(10)]
 
 
 def render(subs):
-    with open("template.html") as f:
+    with open("mocks/template.html") as f:
         template = Template(f.read())
 
     return template.render(subs=subs)
 
 
-def generate_subs(n=10):
+def generate_subs(n=30):
     return [
         {
             "lesson_number": randint(0, 7),
