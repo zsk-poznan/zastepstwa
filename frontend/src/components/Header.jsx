@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import logo from "../assets/logo-zsk.svg";
+import logo from '../assets/logo-zsk.svg';
 
 const HeaderWrapper = styled.header`
   display: flex;

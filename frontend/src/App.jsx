@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
-} from "react-router-dom";
+  Switch,
+} from 'react-router-dom';
 
-import Header from "./components/Header";
+import Header from './components/Header';
 
-import Home from './view/Home'
+import Home from './view/Home';
 
 function App() {
   return (
