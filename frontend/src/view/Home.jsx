@@ -37,7 +37,7 @@ class Home extends React.Component {
         }}
       >
         <div style={{ maxWidth: '500px' }}>
-          { teachers.map((teacher) => <Button redirect={`/teacher/${teacher.name}`}>{ teacher.name }</Button>)}
+          { teachers.map((teacher, i) => <Button key={encodeURI(`${teacher.name}_${i}`)} redirect={`/teacher/${teacher.name}`}>{ teacher.name }</Button>)}
         </div>
       </div>
     );
