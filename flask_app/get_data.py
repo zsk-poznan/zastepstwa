@@ -18,9 +18,10 @@ def main():
 
     for row in rows:
         lesson_info = [col.text for col in row]
-        teacher = lesson_info.pop(5)
+        teacher = lesson_info.pop(1)
         if teacher not in replacements:
             replacements[teacher] = [lesson_info]
         else:
             replacements[teacher].append(lesson_info)
     return replacements
+

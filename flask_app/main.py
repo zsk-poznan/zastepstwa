@@ -1,39 +1,23 @@
-from flask import Flask, escape, request, render_template
+from flask import Flask, escape, request, render_template, jsonify, make_response
 import get_data
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/zastepstwa")
-def zastepstwa():
+@app.route("/api/v0.1/", methods=["GET"])
+def get_all():
     teachers = get_data.main()
-    return render_template("z.html", teachers=teachers)
+    return jsonify({'data': teachers})
 
-
-@app.route("/zastepstwa-pelne")
-def zastepstwa_original():
+@app.route("/api/v0.1/<string:name>", methods=["GET"])
+def get_by_teacher(name):
     teachers = get_data.main()
-    return render_template("z-pelne.html", teachers=teachers, i=0, len=len)
+    teacher = teachers.get(name)
+    return jsonify({'data': teacher})
 
-
-@app.route("/nauczyciel", methods=["GET"])
-def nauczyciel():
-    teachers = get_data.main()
-    teacher = request.args.get("name")
-    return render_template(
-        "nauczyciel.html", teachers=teachers, teacher=teacher, len=len, i=0
-    )
-
-
-@app.route("/komunikaty")
-def komunikaty():
-    return render_template("komunikaty.html")
-
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
