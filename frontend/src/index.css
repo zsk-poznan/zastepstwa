@@ -1,12 +1,15 @@
 body {
-  margin: 0;
-  padding: 0;
   background: #2e3b4e;
   color: #ffffff;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 code {
