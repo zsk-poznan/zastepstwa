@@ -7,7 +7,8 @@ const HeaderWrapper = styled.header`
   display: flex;
   flex-direction: row;
   padding: 20px;
-  & * {
+
+  * {
     margin: auto 10px;
   }
 `;

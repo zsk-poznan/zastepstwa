@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const ButtonWrapper = styled.button`
   background: #4e5e76;
@@ -9,6 +11,7 @@ const ButtonWrapper = styled.button`
   border-radius: 5px;
   padding: 20px 40px;
   width: 100%;
+  cursor: pointer;
 
   margin: 10px;
 
@@ -21,6 +24,16 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-const Button = ({ children }) => <ButtonWrapper>{children}</ButtonWrapper>;
+const Button = ({ children, redirect }) => (
+  <Link to={redirect}><ButtonWrapper>{children}</ButtonWrapper></Link>
+);
+
+Button.propTypes = {
+  redirect: PropTypes.string,
+};
+
+Button.defaultProps = {
+  redirect: '/',
+};
 
 export default Button;
