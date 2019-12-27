@@ -1,39 +1,43 @@
-from flask import Flask, escape, request, render_template
+from flask import Flask, jsonify, make_response
+from flask_cors import CORS
 import get_data
 
 app = Flask(__name__)
+CORS(app)
+
+app.config['JSON_AS_ASCII'] = False
 
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/zastepstwa")
-def zastepstwa():
+@app.route("/api/teacher", methods=["GET"])
+def get_teachers():
     teachers = get_data.main()
-    return render_template("z.html", teachers=teachers)
+    return jsonify({'data': list(teachers.keys())})
 
-
-@app.route("/zastepstwa-pelne")
-def zastepstwa_original():
+@app.route("/api/teacher/<string:name>", methods=["GET"])
+def get_by_teacher(name):
     teachers = get_data.main()
-    return render_template("z-pelne.html", teachers=teachers, i=0, len=len)
+    subs = teachers.get(name)
+    substitutions_of_teacher = [
+        {
+            'lesson_id': sub[0],
+            'teacher': sub[1],
+            'group': sub[2],
+            'lesson_name': sub[3],
+            'classroom': sub[4],
+            'notes': sub[5]
+        }
+        for sub in subs
+    ]
+    return jsonify({'data': substitutions_of_teacher})
 
-
-@app.route("/nauczyciel", methods=["GET"])
-def nauczyciel():
+@app.route("/api/teacher/all", methods=["GET"])
+def get_all():
     teachers = get_data.main()
-    teacher = request.args.get("name")
-    return render_template(
-        "nauczyciel.html", teachers=teachers, teacher=teacher, len=len, i=0
-    )
+    return jsonify({'data': teachers})
 
-
-@app.route("/komunikaty")
-def komunikaty():
-    return render_template("komunikaty.html")
-
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
