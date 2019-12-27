@@ -1,5 +1,11 @@
 version: "3.5"
 services:
+  frontend:
+    build: frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - 3000:3000
   flask:
     # build: flask_app
     image: zskpoznan/zastepstwa_flask

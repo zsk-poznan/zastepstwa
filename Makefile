@@ -14,5 +14,8 @@ stop: ## Stop all containers
 remove: ## Remove all containers
 	docker-compose down
 
+lint: ## Lint the code
+	docker-compose exec frontend npm run lint
+
 logs: ## Display logs from all containers
 	docker-compose logs --tail 50 --follow
