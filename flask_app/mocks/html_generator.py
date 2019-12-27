@@ -25,7 +25,10 @@ def generate_subs(n=30):
             "group": choice(GROUPS),
             "lesson_name": choice(LESSONS),
             "room": choice(ROOMS),
-            "substitute_teacher": choice(TEACHERS + ["Uczniowie przychodzą później", "Uczniowie zwolnieni do domu"])
+            "substitute_teacher": choice(
+                TEACHERS
+                + ["Uczniowie przychodzą później", "Uczniowie zwolnieni do domu"]
+            ),
         }
         for i in range(n)
     ]
