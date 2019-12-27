@@ -2,6 +2,7 @@ from flask import Flask, jsonify, make_response
 import get_data
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 
 @app.route("/api/teacher", methods=["GET"])
