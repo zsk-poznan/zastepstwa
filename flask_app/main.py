@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, make_response
+from flask_cors import CORS
 import get_data
 
 app = Flask(__name__)
+CORS(app)
+
 app.config['JSON_AS_ASCII'] = False
 
 
@@ -13,7 +16,18 @@ def get_teachers():
 @app.route("/api/teacher/<string:name>", methods=["GET"])
 def get_by_teacher(name):
     teachers = get_data.main()
-    substitutions_of_teacher = teachers.get(name)
+    subs = teachers.get(name)
+    substitutions_of_teacher = [
+        {
+            'lesson_id': sub[0],
+            'teacher': sub[1],
+            'group': sub[2],
+            'lesson_name': sub[3],
+            'classroom': sub[4],
+            'notes': sub[5]
+        }
+        for sub in subs
+    ]
     return jsonify({'data': substitutions_of_teacher})
 
 @app.route("/api/teacher/all", methods=["GET"])
