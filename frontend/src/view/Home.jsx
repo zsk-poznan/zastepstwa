@@ -1,5 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import Button from '../components/Button';
+
+const url = 'http://localhost:5000';
 
 class Home extends React.Component {
   constructor(props) {
@@ -11,19 +14,9 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    const teachers = [
-      {
-        name: 'Jan Kowalski',
-      },
-      {
-        name: 'John Smith',
-      },
-      {
-        name: 'Jan Kowalski',
-      },
-    ];
-
-    this.setState({ teachers });
+    axios.get(`${url}/api/teacher`)
+      .then((r) => r.json())
+      .then(({ data }) => this.setState({ teachers: data.map((name) => ({ name })) }));
   }
 
   render() {
