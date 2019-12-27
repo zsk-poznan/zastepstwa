@@ -7,7 +7,6 @@ help:  ## Display this help
 
 start: ## Start all containers in background
 	docker-compose up --detach
-	make generate-html
 
 stop: ## Stop all containers
 	docker-compose stop
@@ -20,6 +19,3 @@ lint: ## Lint the code
 
 logs: ## Display logs from all containers
 	docker-compose logs --tail 50 --follow
-
-generate-html: ## Generate Zastępstwa.html
-	docker-compose exec flask python3 mocks/html_generator.py > flask_app/Zastępstwa.html
