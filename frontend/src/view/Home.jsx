@@ -15,8 +15,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios.get(`${url}/api/teacher`)
-      .then((r) => r.json())
-      .then(({ data }) => this.setState({ teachers: data.map((name) => ({ name })) }));
+      .then(({ data }) => this.setState({ teachers: data.data.map((name) => ({ name })) }));
   }
 
   render() {

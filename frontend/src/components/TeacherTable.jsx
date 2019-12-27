@@ -47,13 +47,13 @@ const TeacherTable = ({ substitutions }) => (
     </thead>
     <tbody>
       { substitutions.map((substitution) => (
-        <tr key={substitution.lekcja}>
-          <td>{substitution.lekcja}</td>
-          <td>{substitution.zamiast}</td>
-          <td>{substitution.oddział}</td>
-          <td>{substitution.przedmiot}</td>
-          <td>{substitution.sala}</td>
-          <td>{substitution.uwagi}</td>
+        <tr key={substitution.lesson_id}>
+          <td>{substitution.lesson_id}</td>
+          <td>{substitution.teacher}</td>
+          <td>{substitution.group}</td>
+          <td>{substitution.lesson_name}</td>
+          <td>{substitution.classroom}</td>
+          <td>{substitution.notes}</td>
         </tr>
       ))}
     </tbody>
