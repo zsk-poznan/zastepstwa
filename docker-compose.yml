@@ -7,8 +7,7 @@ services:
     ports:
       - 3000:3000
   flask:
-    # build: flask_app
-    image: zskpoznan/zastepstwa_flask
+    build: flask_app
     ports:
       - 5000:5000
     volumes:

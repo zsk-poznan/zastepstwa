@@ -1,0 +1,21 @@
+name: Python CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install black
+      run: pip3 install black
+    - name: Check format
+      run: black --check .
