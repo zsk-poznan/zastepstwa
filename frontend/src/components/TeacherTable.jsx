@@ -46,14 +46,14 @@ const TeacherTable = ({ substitutions }) => (
       </tr>
     </thead>
     <tbody>
-      { substitutions.map((substitution) => (
+      {substitutions.map((substitution) => (
         <tr key={substitution.lesson_id}>
           <td>{substitution.lesson_id}</td>
           <td>{substitution.teacher}</td>
           <td>{substitution.group}</td>
           <td>{substitution.lesson_name}</td>
           <td>{substitution.classroom}</td>
-          <td>{substitution.notes}</td>
+          <td>{substitution.notes || 'Brak'}</td>
         </tr>
       ))}
     </tbody>
@@ -61,14 +61,16 @@ const TeacherTable = ({ substitutions }) => (
 );
 
 TeacherTable.propTypes = {
-  substitutions: PropTypes.arrayOf(PropTypes.shape({
-    lekcja: PropTypes.string,
-    zamiast: PropTypes.string,
-    oddział: PropTypes.string,
-    przedmiot: PropTypes.string,
-    sala: PropTypes.string,
-    uwagi: PropTypes.string,
-  })).isRequired,
+  substitutions: PropTypes.arrayOf(
+    PropTypes.shape({
+      lekcja: PropTypes.string,
+      zamiast: PropTypes.string,
+      oddział: PropTypes.string,
+      przedmiot: PropTypes.string,
+      sala: PropTypes.string,
+      uwagi: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default TeacherTable;
