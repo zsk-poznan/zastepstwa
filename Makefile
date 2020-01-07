@@ -6,6 +6,7 @@ help:  ## Display this help
 	@echo ''
 
 start: ## Start all containers in background
+	@if ! [[ -d flask_app/venv ]]; then printf "\n\n\t It seems that you're running for the first time. This make take ~10-15 minutes so take a break. \n\n\n"; fi
 	docker-compose up --detach
 
 stop: ## Stop all containers
@@ -16,6 +17,8 @@ remove: ## Remove all containers
 
 lint: ## Lint the code
 	docker-compose exec frontend npm run lint
+	docker-compose exec flask ./venv/bin/activate && black .
+
 
 logs: ## Display logs from all containers
 	docker-compose logs --tail 50 --follow
