@@ -1,16 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../assets/logo-zsk.svg';
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled(Link)`
   display: flex;
   flex-direction: row;
   padding: 20px;
+  width: fit-content;
+  text-decoration: none;
 
   * {
     margin: auto 10px;
   }
+`;
+
+const AppName = styled.h1`
+  color: white;
 `;
 
 const ImageWrapper = styled.img`
@@ -18,10 +25,12 @@ const ImageWrapper = styled.img`
 `;
 
 const Header = () => (
-  <HeaderWrapper>
-    <ImageWrapper src={logo} alt="ZSK" />
-    <h1>Zastępstwa</h1>
-  </HeaderWrapper>
+  <header>
+    <HeaderWrapper to="/">
+      <ImageWrapper src={logo} alt="ZSK" />
+      <AppName>Zastępstwa</AppName>
+    </HeaderWrapper>
+  </header>
 );
 
 export default Header;
