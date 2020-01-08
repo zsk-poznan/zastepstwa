@@ -16,7 +16,7 @@ const ButtonWrapper = styled.button`
   margin: 10px;
 
   &:hover {
-    background: #5d6e88;
+    /*background: #5d6e88;*/
   }
 
   &:focus {
@@ -25,7 +25,9 @@ const ButtonWrapper = styled.button`
 `;
 
 const Button = ({ children, redirect }) => (
-  <Link to={redirect}><ButtonWrapper>{children}</ButtonWrapper></Link>
+  <Link to={redirect}>
+    <ButtonWrapper>{children}</ButtonWrapper>
+  </Link>
 );
 
 Button.propTypes = {

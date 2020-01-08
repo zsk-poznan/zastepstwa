@@ -10,12 +10,15 @@ const Teacher = () => {
   const { name } = useParams();
 
   const [substitutions, setSubstitutions] = useState([]);
+  const [error, setError] = useState(null);
 
   // Here the substituions for the teacher will be downloaded from API
   // Simulated async call
   useEffect(() => {
-    axios.get(`${url}/api/teacher/${name}`)
-      .then(({ data }) => setSubstitutions(data.data));
+    axios
+      .get(`${url}/api/teacher/${name}`)
+      .then(({ data }) => setSubstitutions(data.data))
+      .catch((err) => setError(err));
   }, []);
 
   return (
@@ -27,7 +30,11 @@ const Teacher = () => {
       }}
     >
       <TeacherTitle title={name} />
-      <TeacherTable substitutions={substitutions} />
+      {error ? (
+        <span style={{ color: 'red' }}>Wystąpił błąd!</span>
+      ) : (
+        <TeacherTable substitutions={substitutions} />
+      )}
     </div>
   );
 };
