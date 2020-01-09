@@ -42,7 +42,13 @@ class Home extends React.Component {
             </Button>
           ))}
         </div>
-        <Link to="/all">Wszystkie zastępstwa</Link>
+        <Link
+          to="/all"
+          class="anchor"
+          style={{ marginTop: '20px', marginBottom: '40px' }}
+        >
+          Wszystkie zastępstwa
+        </Link>
       </div>
     );
   }
