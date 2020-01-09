@@ -17,7 +17,9 @@ const Teacher = () => {
   useEffect(() => {
     axios
       .get(`${url}/api/teacher/${name}`)
-      .then(({ data }) => setSubstitutions(data.data))
+      .then(({ data }) => data.data)
+      .then((subs) => subs.sort((a, b) => (a.lesson_id > b.lesson_id ? 1 : -1)))
+      .then((subs) => setSubstitutions(subs))
       .catch((err) => setError(err));
   }, []);
 
