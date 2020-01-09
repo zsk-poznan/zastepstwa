@@ -10,8 +10,19 @@ app.config["JSON_AS_ASCII"] = False
 
 @app.route("/api/teacher", methods=["GET"])
 def get_teachers():
-    teachers = get_data.main()
-    return jsonify({"data": list(teachers.keys())})
+    teachers = list(get_data.main().keys())
+    filter_dismissed = list(
+        filter(
+            lambda teacher: teacher
+            not in [
+                "Uczniowie zwolnieni do domu",
+                "Uczniowie przychodzą później",
+                "Okienko dla uczniów",
+            ],
+            teachers,
+        )
+    )
+    return jsonify({"data": filter_dismissed})
 
 
 def create_sub(sub: list) -> dict:
