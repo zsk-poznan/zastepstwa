@@ -30,7 +30,7 @@ const AllSubstitutions = () => {
         </thead>
         <tbody>
           {substitutions.map((substitution) => (
-            <tr key={substitution.lesson_id}>
+            <tr key={substitution.lesson_id + substitution.teacher}>
               <td>{substitution.lesson_id}</td>
               <td>{substitution.teacher}</td>
               <td>{substitution.group}</td>
