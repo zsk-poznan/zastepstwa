@@ -13,27 +13,26 @@ def get_teachers():
     teachers = get_data.main()
     return jsonify({"data": list(teachers.keys())})
 
+
 def create_sub(sub: list) -> dict:
     """
-    This function convert list to dict representing the substitute.
+    This function convert list to dict representing the substitution.
     """
     return {
-            "lesson_id": sub[0],
-            "teacher": sub[1],
-            "group": sub[2],
-            "lesson_name": sub[3],
-            "classroom": sub[4],
-            "notes": sub[5],
-        }
+        "lesson_id": sub[0],
+        "teacher": sub[1],
+        "group": sub[2],
+        "lesson_name": sub[3],
+        "classroom": sub[4],
+        "notes": sub[5],
+    }
+
 
 @app.route("/api/teacher/<string:name>", methods=["GET"])
 def get_by_teacher(name):
     teachers = get_data.main()
     subs = teachers.get(name)
-    substitutions_of_teacher = [
-        create_sub(sub)
-        for sub in subs
-    ]
+    substitutions_of_teacher = [create_sub(sub) for sub in subs]
     return jsonify({"data": substitutions_of_teacher})
 
 
@@ -43,14 +42,12 @@ def get_all():
     all_substitutions = []
     for teacher in substitutions.keys():
         teacher_subs = [
-            {
-                **create_sub(sub),
-                "substitute_teacher": teacher
-            }
+            {**create_sub(sub), "substitute_teacher": teacher}
             for sub in substitutions[teacher]
         ]
         all_substitutions += sorted(teacher_subs, key=lambda sub: sub["lesson_id"])
     return jsonify({"data": all_substitutions})
+
 
 @app.errorhandler(404)
 def not_found(error):
