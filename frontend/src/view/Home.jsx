@@ -15,7 +15,8 @@ const Home = () => {
 
   useEffect(() => {
     getData();
-    setInterval(getData, 60000);
+    const refreshId = setInterval(getData, 60000);
+    return () => clearInterval(refreshId);
   }, []);
 
   return (
@@ -38,7 +39,7 @@ const Home = () => {
       </div>
       <Link
         to="/all"
-        class="anchor"
+        className="anchor"
         style={{ marginTop: '20px', marginBottom: '40px' }}
       >
         Wszystkie zastępstwa
