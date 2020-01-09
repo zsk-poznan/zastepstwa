@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import StyledTable from '../components/StyledTable';
 
-const url = 'https://localhost:5000';
+const url = 'http://localhost:5000';
 
 const AllSubstitutions = () => {
   const [substitutions, setSubstitutions] = useState([]);
