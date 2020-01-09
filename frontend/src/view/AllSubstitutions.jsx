@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import StyledTable from '../components/StyledTable';
+import TeacherTitle from '../components/TeacherTitle';
 
 const url = 'http://localhost:5000';
 
@@ -15,7 +16,14 @@ const AllSubstitutions = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <TeacherTitle title="Wszystkie zastępstwa" />
       <StyledTable>
         <thead>
           <tr>
