@@ -9,6 +9,6 @@ ADD . .
 
 RUN npm run build
 
-FROM sebp/lighttpd:latest
+FROM nginx:1.17.7-alpine
 
-COPY --from=builder /app/build /var/www/localhost/htdocs
+COPY --from=builder /app/build /usr/share/nginx/html
