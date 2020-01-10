@@ -4,7 +4,9 @@ services:
     image: zskpoznan/zastepstwa_frontend
     ports:
       - 80:80
+    restart: always
   backend:
     image: zskpoznan/zastepstwa_backend
     ports:
       - 5000:5000
+    restart: always
