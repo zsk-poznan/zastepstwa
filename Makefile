@@ -9,6 +9,9 @@ start: ## Start all containers in background
 	@if ! [[ -d flask_app/venv ]]; then printf "\n\n\t It seems that you're running for the first time. This make take ~10-15 minutes so take a break. \n\n\n"; fi
 	docker-compose up --detach
 
+start-prod: ## Start in production mode
+	docker-compose -f production.yml up --detach
+
 stop: ## Stop all containers
 	docker-compose stop
 

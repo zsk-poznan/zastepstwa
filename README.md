@@ -22,4 +22,7 @@ For more snippets type `make help`
 
 ``` sh
 docker-compose -f production.yml up -d
+
+# or
+make start-prod
 ```
