@@ -20,7 +20,7 @@ remove: ## Remove all containers
 
 lint: ## Lint the code
 	docker-compose exec frontend npm run lint
-	docker-compose exec flask ./venv/bin/activate && black .
+	docker-compose exec flask sh -c "source venv/bin/activate && black --exclude=venv ."
 
 
 logs: ## Display logs from all containers
