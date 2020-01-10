@@ -15,4 +15,6 @@ ENV LC_ALL en_US.UTF-8
 ENV FLASK_APP main.py
 ENV FLASK_ENV development
 
+ADD . .
+
 CMD ["./docker-entrypoint.sh"]
