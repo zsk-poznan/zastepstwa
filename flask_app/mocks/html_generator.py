@@ -6,6 +6,7 @@ from random import choice, randint
 
 fake = Faker("pl_PL")
 
+
 def generate_names(amount: int = 20) -> list:
     names = []
     for _ in range(amount):
