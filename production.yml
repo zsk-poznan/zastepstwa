@@ -13,5 +13,5 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - /home/pi/Desktop/zastepstwa-gui/Zastępstwa.html:/app/Zastępstwa.html
+      - ./Zastępstwa.html:/app/Zastępstwa.html
     restart: always
