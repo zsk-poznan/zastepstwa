@@ -1,0 +1,36 @@
+name: Docker deploy
+
+on:
+  pull_request:
+    branches: feature/docker-deploy
+  push:
+    branches: feature/docker-deploy
+    tags:
+
+jobs:
+  buildx:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
+          
+      - name: Login to Docker Hub
+        run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
+          
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+      -
+        name: Run Buildx
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6 \
+            --push \
+            ./frontend \
+            -t zskpoznan/zastepstwa_frontend
