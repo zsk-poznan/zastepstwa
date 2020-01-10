@@ -1,7 +1,9 @@
 version: "3.5"
 services:
   frontend:
-    build: frontend
+    build:
+      context: frontend
+      dockerfile: frontend/Dockerfile.dev
     volumes:
       - ./frontend:/app
     ports:
