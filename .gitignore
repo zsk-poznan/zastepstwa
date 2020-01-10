@@ -2,5 +2,6 @@ venv
 __pycache__
 .pyc
 .idea/
+.vscode
 
 flask_app/Zastępstwa.html
