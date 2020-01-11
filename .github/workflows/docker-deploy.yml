@@ -1,11 +1,8 @@
 name: Docker deploy
 
 on:
-  pull_request:
-    branches: feature/docker-deploy
   push:
-    branches: feature/docker-deploy
-    tags:
+    branches: master
 
 jobs:
   buildx:
