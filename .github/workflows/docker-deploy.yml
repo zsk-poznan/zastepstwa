@@ -26,11 +26,19 @@ jobs:
           
       - name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
-      -
-        name: Run Buildx
+        
+      - name: Run Buildx Frontend
         run: |
           docker buildx build \
             --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 \
             --push \
             ./frontend \
             -t zskpoznan/zastepstwa_frontend
+
+      - name: Run Buildx Backend
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 \
+            --push \
+            ./flask_app \
+            -t zskpoznan/zastepstwa_backend
