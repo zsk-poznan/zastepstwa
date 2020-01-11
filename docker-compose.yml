@@ -3,13 +3,15 @@ services:
   frontend:
     build:
       context: frontend
-      dockerfile: frontend/Dockerfile.dev
+      dockerfile: Dockerfile.dev
     volumes:
       - ./frontend:/app
     ports:
       - 3000:3000
   flask:
-    build: flask_app
+    build:
+      context: flask_app
+      dockerfile: Dockerfile.dev
     ports:
       - 5000:5000
     volumes:
