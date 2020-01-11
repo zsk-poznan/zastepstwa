@@ -26,7 +26,7 @@ logs: ## Display logs from all containers
 # PRODUCTION
 
 start-prod: ## Start in production mode
-	docker-compose -f production.yml up --detach
+	docker-compose -f production.yml up -d
 
 stop-prod: ## Stop containers in production mode
 	docker-compose -f production.yml stop
