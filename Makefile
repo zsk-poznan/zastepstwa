@@ -36,3 +36,14 @@ logs-prod: ## Display logs from containers in production mode
 
 remove-prod: ## Remove containers in production mode
 	docker-compose -f production.yml down
+
+# System setup
+
+install: ## Install docker and docker-compose
+	set -eu pipefail
+	sudo apt-get update -y
+	sudo apt-get upgrade -y
+	sudo apt-get install -y python3 python3-pip curl
+	curl -sSL https://get.docker.com | sh
+	pip3 install docker-compose
+	sudo usermod -aG docker $USER
