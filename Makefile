@@ -46,4 +46,4 @@ install: ## Install docker and docker-compose
 	sudo apt-get install -y python3 python3-pip curl
 	curl -sSL https://get.docker.com | sh
 	pip3 install docker-compose
-	sudo usermod -aG docker $USER
+	sudo usermod -aG docker $(USER)
