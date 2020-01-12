@@ -17,3 +17,12 @@ make stop # To stop all the containers
 ```
 
 For more snippets type `make help`
+
+## Deploy
+
+``` sh
+docker-compose -f production.yml up -d
+
+# or
+make start-prod
+```

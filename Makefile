@@ -19,6 +19,31 @@ lint: ## Lint the code
 	docker-compose exec frontend npm run lint
 	docker-compose exec flask sh -c "source venv/bin/activate && black --exclude=venv ."
 
-
 logs: ## Display logs from all containers
 	docker-compose logs --tail 50 --follow
+
+
+# PRODUCTION
+
+start-prod: ## Start in production mode
+	docker-compose -f production.yml up -d
+
+stop-prod: ## Stop containers in production mode
+	docker-compose -f production.yml stop
+
+logs-prod: ## Display logs from containers in production mode
+	docker-compose -f production.yml logs --tail 50 --follow
+
+remove-prod: ## Remove containers in production mode
+	docker-compose -f production.yml down
+
+# System setup
+
+install: ## Install docker and docker-compose
+	set -eu pipefail
+	sudo apt-get update -y
+	sudo apt-get upgrade -y
+	sudo apt-get install -y python3 python3-pip curl
+	curl -sSL https://get.docker.com | sh
+	pip3 install docker-compose
+	sudo usermod -aG docker $(USER)

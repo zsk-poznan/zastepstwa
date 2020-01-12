@@ -1,0 +1,15 @@
+version: "3.5"
+services:
+  frontend:
+    image: zskpoznan/zastepstwa_frontend
+    ports:
+      - 80:80
+    tty: true
+    restart: always
+  backend:
+    image: zskpoznan/zastepstwa_backend
+    ports:
+      - 5000:5000
+    volumes:
+      - ./Zastępstwa.html:/app/Zastępstwa.html
+    restart: always
