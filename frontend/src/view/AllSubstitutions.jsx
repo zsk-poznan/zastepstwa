@@ -3,8 +3,7 @@ import axios from 'axios';
 
 import StyledTable from '../components/StyledTable';
 import TableTitle from '../components/TableTitle';
-
-const url = 'http://localhost:5000';
+import url from '../config';
 
 const AllSubstitutions = () => {
   const [substitutions, setSubstitutions] = useState([]);

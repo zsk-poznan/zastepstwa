@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-
-const url = 'http://localhost:5000';
+import url from '../config';
 
 const Home = () => {
   const [teachers, setTeachers] = useState([]);

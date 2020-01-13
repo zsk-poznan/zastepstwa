@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import TableTitle from '../components/TableTitle';
 import TeacherTable from '../components/TeacherTable';
-
-const url = 'http://localhost:5000';
+import TableTitle from '../components/TableTitle';
+import url from '../config';
 
 const Teacher = () => {
   const { name } = useParams();
