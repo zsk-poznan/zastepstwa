@@ -2,4 +2,3 @@ flask
 jinja2
 lxml
 flask_cors
-faker
