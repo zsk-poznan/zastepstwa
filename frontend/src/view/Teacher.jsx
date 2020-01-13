@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import TeacherTable from '../components/TeacherTable';
 import TableTitle from '../components/TableTitle';
-import Error from '../components/Error';
+import ErrorMessage from '../components/ErrorMessage';
 import url from '../config';
 
 const Teacher = () => {
@@ -33,7 +33,7 @@ const Teacher = () => {
     >
       <TableTitle title={name} />
       {error ? (
-        <Error error={error} />
+        <ErrorMessage error={error} />
       ) : (
         <TeacherTable substitutions={substitutions} />
       )}

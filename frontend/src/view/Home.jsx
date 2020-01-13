@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import Button from '../components/Button';
-import Error from '../components/Error';
+import ErrorMessage from '../components/ErrorMessage';
 import url from '../config';
 
 const Home = () => {
@@ -31,7 +31,7 @@ const Home = () => {
       }}
     >
       {error ? (
-        <Error error={error} />
+        <ErrorMessage error={error} />
       ) : (
         <div style={{ maxWidth: '500px' }}>
           {teachers.map((teacher, i) => (

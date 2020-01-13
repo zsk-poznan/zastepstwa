@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import StyledTable from '../components/StyledTable';
 import TableTitle from '../components/TableTitle';
-import Error from '../components/Error';
+import ErrorMessage from '../components/ErrorMessage';
 import url from '../config';
 
 const AllSubstitutions = () => {
@@ -27,7 +27,7 @@ const AllSubstitutions = () => {
     >
       <TableTitle title="Wszystkie zastępstwa" />
       {error ? (
-        <Error error={error} />
+        <ErrorMessage error={error} />
       ) : (
         <StyledTable>
           <thead>

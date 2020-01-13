@@ -7,7 +7,7 @@ const ErrorWrapper = styled.span`
   color: red;
 `;
 
-const Error = ({ error }) => (
+const ErrorMessage = ({ error }) => (
   <ErrorWrapper>
     <p style={{ fontSize: '2em' }}>Wystąpił błąd!</p>
     <details>
@@ -17,8 +17,8 @@ const Error = ({ error }) => (
   </ErrorWrapper>
 );
 
-Error.propTypes = {
+ErrorMessage.propTypes = {
   error: PropTypes.string.isRequired,
 };
 
-export default Error;
+export default ErrorMessage;
