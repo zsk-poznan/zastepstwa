@@ -40,9 +40,7 @@ def generate_subs(n=30):
             "group": choice(GROUPS),
             "lesson_name": choice(LESSONS),
             "room": choice(ROOMS),
-            "substitute_teacher": choice(
-                TEACHERS
-            ),
+            "substitute_teacher": choice(TEACHERS),
         }
         for i in range(n)
     ]
