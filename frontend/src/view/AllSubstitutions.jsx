@@ -27,7 +27,7 @@ const AllSubstitutions = () => {
     >
       <TableTitle title="Wszystkie zastępstwa" />
       {error ? (
-        <Error />
+        <Error error={error} />
       ) : (
         <StyledTable>
           <thead>

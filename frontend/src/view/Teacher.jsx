@@ -32,7 +32,11 @@ const Teacher = () => {
       }}
     >
       <TableTitle title={name} />
-      {error ? <Error /> : <TeacherTable substitutions={substitutions} />}
+      {error ? (
+        <Error error={error} />
+      ) : (
+        <TeacherTable substitutions={substitutions} />
+      )}
     </div>
   );
 };

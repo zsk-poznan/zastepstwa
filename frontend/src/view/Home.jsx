@@ -31,7 +31,7 @@ const Home = () => {
       }}
     >
       {error ? (
-        <Error />
+        <Error error={error} />
       ) : (
         <div style={{ maxWidth: '500px' }}>
           {teachers.map((teacher, i) => (
