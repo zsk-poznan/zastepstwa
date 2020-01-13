@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+
 import TeacherTable from '../components/TeacherTable';
 import TableTitle from '../components/TableTitle';
+import Error from '../components/Error';
 import url from '../config';
 
 const Teacher = () => {
@@ -30,11 +32,7 @@ const Teacher = () => {
       }}
     >
       <TableTitle title={name} />
-      {error ? (
-        <span style={{ color: 'red' }}>Wystąpił błąd!</span>
-      ) : (
-        <TeacherTable substitutions={substitutions} />
-      )}
+      {error ? <Error /> : <TeacherTable substitutions={substitutions} />}
     </div>
   );
 };

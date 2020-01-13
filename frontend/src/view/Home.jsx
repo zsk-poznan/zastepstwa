@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 import Button from '../components/Button';
+import Error from '../components/Error';
 import url from '../config';
 
 const Home = () => {
   const [teachers, setTeachers] = useState([]);
+  const [error, setError] = useState(null);
 
   const getData = () =>
     axios
       .get(`${url}/api/teacher`)
-      .then(({ data }) => setTeachers(data.data.map((name) => ({ name }))));
+      .then(({ data }) => setTeachers(data.data.map((name) => ({ name }))))
+      .catch((err) => setError(String(err)));
 
   useEffect(() => {
     getData();
@@ -26,16 +30,20 @@ const Home = () => {
         alignItems: 'center',
       }}
     >
-      <div style={{ maxWidth: '500px' }}>
-        {teachers.map((teacher, i) => (
-          <Button
-            key={encodeURI(`${teacher.name}_${i}`)}
-            redirect={`/teacher/${teacher.name}`}
-          >
-            {teacher.name}
-          </Button>
-        ))}
-      </div>
+      {error ? (
+        <Error />
+      ) : (
+        <div style={{ maxWidth: '500px' }}>
+          {teachers.map((teacher, i) => (
+            <Button
+              key={encodeURI(`${teacher.name}_${i}`)}
+              redirect={`/teacher/${teacher.name}`}
+            >
+              {teacher.name}
+            </Button>
+          ))}
+        </div>
+      )}
       <Link
         to="/all"
         className="anchor"
