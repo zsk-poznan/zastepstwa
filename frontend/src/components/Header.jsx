@@ -4,20 +4,17 @@ import styled from 'styled-components';
 
 import logo from '../assets/logo-zsk.svg';
 
-const HeaderWrapper = styled(Link)`
+const HeaderLink = styled(Link)`
   display: flex;
   flex-direction: row;
   padding: 20px;
   width: fit-content;
   text-decoration: none;
+  color: white;
 
   * {
     margin: auto 10px;
   }
-`;
-
-const AppName = styled.h1`
-  color: white;
 `;
 
 const ImageWrapper = styled.img`
@@ -26,10 +23,10 @@ const ImageWrapper = styled.img`
 
 const Header = () => (
   <header>
-    <HeaderWrapper to="/">
+    <HeaderLink to="/">
       <ImageWrapper src={logo} alt="ZSK" />
-      <AppName>Zastępstwa</AppName>
-    </HeaderWrapper>
+      <h1>Zastępstwa</h1>
+    </HeaderLink>
   </header>
 );
 
