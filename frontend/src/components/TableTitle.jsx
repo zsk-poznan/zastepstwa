@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import ArrowBack from '../assets/arrow-back.svg';
 
-const TeacherTitleWrapper = styled.div`
+const TableTitleWrapper = styled.div`
   display: flex;
   width: 100%;
   padding: 45px;
@@ -24,17 +24,17 @@ const StyledLink = styled(Link)`
   height: 30px;
 `;
 
-const TeacherTitle = ({ title }) => (
-  <TeacherTitleWrapper>
+const TableTitle = ({ title }) => (
+  <TableTitleWrapper>
     <StyledLink to="/">
       <img src={ArrowBack} alt="Powrót" height="30" />
     </StyledLink>
-    <H2>{ title }</H2>
-  </TeacherTitleWrapper>
+    <H2>{title}</H2>
+  </TableTitleWrapper>
 );
 
-TeacherTitle.propTypes = {
+TableTitle.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default TeacherTitle;
+export default TableTitle;

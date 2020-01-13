@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import StyledTable from '../components/StyledTable';
-import TeacherTitle from '../components/TeacherTitle';
+import TableTitle from '../components/TableTitle';
 
 const url = 'http://localhost:5000';
 
@@ -23,7 +23,7 @@ const AllSubstitutions = () => {
         alignItems: 'center',
       }}
     >
-      <TeacherTitle title="Wszystkie zastępstwa" />
+      <TableTitle title="Wszystkie zastępstwa" />
       <StyledTable>
         <thead>
           <tr>

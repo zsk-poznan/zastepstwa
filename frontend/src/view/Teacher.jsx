@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import TeacherTitle from '../components/TeacherTitle';
+import TableTitle from '../components/TableTitle';
 import TeacherTable from '../components/TeacherTable';
 
 const url = 'http://localhost:5000';
@@ -13,7 +13,6 @@ const Teacher = () => {
   const [error, setError] = useState(null);
 
   // Here the substituions for the teacher will be downloaded from API
-  // Simulated async call
   useEffect(() => {
     axios
       .get(`${url}/api/teacher/${name}`)
@@ -31,7 +30,7 @@ const Teacher = () => {
         alignItems: 'center',
       }}
     >
-      <TeacherTitle title={name} />
+      <TableTitle title={name} />
       {error ? (
         <span style={{ color: 'red' }}>Wystąpił błąd!</span>
       ) : (
