@@ -4,6 +4,8 @@ from jinja2 import Template
 
 from random import choice, randint
 
+from constants import DISMISSED_LESSON_NAMES
+
 fake = Faker("pl_PL")
 
 
@@ -20,7 +22,7 @@ def generate_names(amount: int = 20) -> list:
 GROUPS = ["3E", "1C|N1", "1GB", "2Z", "1A", "4D", "2A|1/2"]
 LESSONS = ["Niemiecki", "Programowanie", "Fajny przedmiot", "Zażółć"]
 ROOMS = [str(randint(20, 40)) for i in range(20)] + ["SG1", "@"]
-TEACHERS = generate_names(10)
+TEACHERS = generate_names(10) + DISMISSED_LESSON_NAMES
 
 
 def render(subs):
@@ -38,10 +40,7 @@ def generate_subs(n=30):
             "group": choice(GROUPS),
             "lesson_name": choice(LESSONS),
             "room": choice(ROOMS),
-            "substitute_teacher": choice(
-                TEACHERS
-                + ["Uczniowie przychodzą później", "Uczniowie zwolnieni do domu"]
-            ),
+            "substitute_teacher": choice(TEACHERS),
         }
         for i in range(n)
     ]

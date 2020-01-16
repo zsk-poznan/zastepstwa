@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, make_response
 from flask_cors import CORS
+
 import get_data
+from utils import filter_dismissed_lessons, create_sub
 
 app = Flask(__name__)
 CORS(app)
@@ -11,32 +13,8 @@ app.config["JSON_AS_ASCII"] = False
 @app.route("/api/teacher", methods=["GET"])
 def get_teachers():
     teachers = list(get_data.main().keys())
-    filter_dismissed = list(
-        filter(
-            lambda teacher: teacher
-            not in [
-                "Uczniowie zwolnieni do domu",
-                "Uczniowie przychodzą później",
-                "Okienko dla uczniów",
-            ],
-            teachers,
-        )
-    )
-    return jsonify({"data": filter_dismissed})
-
-
-def create_sub(sub: list) -> dict:
-    """
-    This function convert list to dict representing the substitution.
-    """
-    return {
-        "lesson_id": sub[0],
-        "teacher": sub[1],
-        "group": sub[2],
-        "lesson_name": sub[3],
-        "classroom": sub[4],
-        "notes": sub[5],
-    }
+    filtered_teachers = filter_dismissed_lessons(teachers)
+    return jsonify({"data": filtered_teachers})
 
 
 @app.route("/api/teacher/<string:name>", methods=["GET"])
