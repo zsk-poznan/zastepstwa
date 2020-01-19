@@ -1,5 +1,5 @@
 flask
 jinja2
-lxml
+beautifulsoup4
 flask_cors
 gunicorn
