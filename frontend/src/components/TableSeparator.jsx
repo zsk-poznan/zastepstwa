@@ -12,7 +12,7 @@ const TableSeparatorWrapper = styled.tr`
 
 const TableSeparator = () => (
   <TableSeparatorWrapper>
-    <td colspan="1024" />
+    <td colSpan="1024" />
   </TableSeparatorWrapper>
 );
 
