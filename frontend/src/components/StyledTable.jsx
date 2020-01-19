@@ -29,6 +29,10 @@ const StyledTable = styled.table`
       }
     }
   }
+
+  hr {
+    width: 100%;
+  }
 `;
 
 export default StyledTable;
