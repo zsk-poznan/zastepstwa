@@ -4,7 +4,6 @@ import axios from 'axios';
 import StyledTable from '../components/StyledTable';
 import TableTitle from '../components/TableTitle';
 import ErrorMessage from '../components/ErrorMessage';
-import url from '../config';
 
 const AllSubstitutions = () => {
   const [substitutions, setSubstitutions] = useState([]);
@@ -12,7 +11,7 @@ const AllSubstitutions = () => {
 
   useEffect(() => {
     axios
-      .get(`${url}/api/teacher/all`)
+      .get(`/api/teacher/all`)
       .then(({ data }) => setSubstitutions(data.data))
       .catch((err) => setError(String(err)));
   }, []);
