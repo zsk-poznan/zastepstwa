@@ -1,0 +1,7 @@
+[Service]
+Restart=always
+User=pi
+ExecStart=/usr/local/bin/ngrok tcp 22
+
+[Install]
+WantedBy=multi-user.target
