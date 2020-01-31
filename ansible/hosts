@@ -1,0 +1,2 @@
+[production]
+0.tcp.ngrok.io ansible_ssh_private_key_file=~/.ssh/ru_zsk.poznan.pl ansible_user=pi ansible_port=19850 #SSH-PORT

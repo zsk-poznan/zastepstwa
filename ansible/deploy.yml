@@ -1,0 +1,53 @@
+
+- hosts: production
+  become: yes
+  roles:
+    - role: haxorof.docker_ce
+      docker_users:
+        - pi
+
+  tasks:
+
+   - name: Create user guest
+     user:
+       name: guest
+       shell: /bin/bash
+
+   - name: Auto-login guest on boot
+     copy:
+       src: lightdm.conf
+       dest: /etc/lightdm/lightdm.conf
+       mode: '0644'
+       owner: root
+       group: root
+
+   - name: Install chromium
+     apt:
+       name:
+         - chromium-browser
+
+   - name: Start script
+     copy:
+       src: kiosk.sh
+       dest: /home/guest/kiosk.sh
+       mode: '0744'
+       owner: guest
+       group: guest
+
+   - name: Auto start chromium
+     copy:
+       src: chromium.desktop
+       dest: /home/guest/.config/autostart/chromium.desktop
+       owner: guest
+       group: guest
+
+   - name: Git clone
+     git:
+       repo: https://github.com/zsk-poznan/zastepstwa.git
+       dest: /home/pi/Desktop/zastepstwa-gui
+       update: yes
+
+   - name: Update containers
+     shell: docker-compose -f production.yml down; docker-compose -f production.yml pull && docker-compose -f production.yml up -d
+     args:
+       chdir: /home/pi/Desktop/zastepstwa-gui
