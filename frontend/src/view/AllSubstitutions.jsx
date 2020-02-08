@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import StyledTable from '../components/StyledTable';
+import TableSeparator from '../components/TableSeparator';
 import TableTitle from '../components/TableTitle';
 import ErrorMessage from '../components/ErrorMessage';
 
 const AllSubstitutions = () => {
   const [substitutions, setSubstitutions] = useState([]);
   const [error, setError] = useState(null);
+  let prevTeacher = '';
 
   useEffect(() => {
     axios
@@ -15,6 +17,31 @@ const AllSubstitutions = () => {
       .then(({ data }) => setSubstitutions(data.data))
       .catch((err) => setError(String(err)));
   }, []);
+
+  const generateLessonRow = (s) => {
+    const row = (
+      <tr key={s.lesson_id + s.teacher}>
+        <td>{s.lesson_id}</td>
+        <td>{s.teacher}</td>
+        <td>{s.group}</td>
+        <td>{s.lesson_name}</td>
+        <td>{s.classroom}</td>
+        <td>{s.notes || 'Brak'}</td>
+        <td>{s.substitute_teacher}</td>
+      </tr>
+    );
+    if (prevTeacher === '' || s.substitute_teacher === prevTeacher) {
+      prevTeacher = s.substitute_teacher;
+      return row;
+    }
+    prevTeacher = s.substitute_teacher;
+    return (
+      <>
+        <TableSeparator />
+        {row}
+      </>
+    );
+  };
 
   return (
     <div
@@ -40,19 +67,7 @@ const AllSubstitutions = () => {
               <th>Nauczyciel</th>
             </tr>
           </thead>
-          <tbody>
-            {substitutions.map((substitution) => (
-              <tr key={substitution.lesson_id + substitution.teacher}>
-                <td>{substitution.lesson_id}</td>
-                <td>{substitution.teacher}</td>
-                <td>{substitution.group}</td>
-                <td>{substitution.lesson_name}</td>
-                <td>{substitution.classroom}</td>
-                <td>{substitution.notes || 'Brak'}</td>
-                <td>{substitution.substitute_teacher}</td>
-              </tr>
-            ))}
-          </tbody>
+          <tbody>{substitutions.map(generateLessonRow)}</tbody>
         </StyledTable>
       )}
     </div>
