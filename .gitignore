@@ -4,5 +4,8 @@ __pycache__
 .idea/
 .vscode
 
+ansible/roles
+
 flask_app/Zastępstwa.html
 Zastępstwa.html
+

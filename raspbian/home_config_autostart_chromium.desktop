@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=guest
-Comment=Guest kiosk mode
-Exec=/home/guest/kiosk.sh
-TryExec=/home/guest/kiosk.sh
-Type=Application
