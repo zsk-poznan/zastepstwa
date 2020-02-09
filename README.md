@@ -1,4 +1,4 @@
-# zastepstwa-gui
+# zastepstwa
 
 ## Install dependencies
 
