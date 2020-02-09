@@ -1,10 +1,7 @@
 # zastepstwa
 
-## Install dependencies
-
-```sh
-pip3 install -r requirements.txt
-```
+Web app for displaying substitute teachers. This app runs in teacher room in our
+school on Raspberry Pi with a touchscreen attached.
 
 ## Development
 
