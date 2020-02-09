@@ -26,7 +26,7 @@ installed and ssh connection to the raspberry pi with raspbian installed. We
 initially were using [ngrok](https://ngrok.com) to have connection. You use [this
 service](ansible/ngrok-ssh.service) for this.
 
-If there's a reason that you don't want forward ssh you could try [this](no_ssh)
+If there's a reason that you don't want forward ssh you could try [this](#no_ssh)
 
 ### SSH
 
