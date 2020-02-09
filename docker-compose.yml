@@ -8,11 +8,11 @@ services:
       - ./frontend:/app
     ports:
       - 3000:3000
-  flask:
+  backend:
     build:
-      context: flask_app
+      context: backend
       dockerfile: Dockerfile.dev
     ports:
       - 5000:5000
     volumes:
-      - ./flask_app:/app
+      - ./backend:/app
