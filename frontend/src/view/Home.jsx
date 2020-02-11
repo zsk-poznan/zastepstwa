@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import Button from '../components/Button';
 import ErrorMessage from '../components/ErrorMessage';
-import url from '../config';
 
 const Home = () => {
   const [teachers, setTeachers] = useState([]);
@@ -12,7 +11,7 @@ const Home = () => {
 
   const getData = () =>
     axios
-      .get(`${url}/api/teacher`)
+      .get(`/api/teacher`)
       .then(({ data }) => setTeachers(data.data.map((name) => ({ name }))))
       .catch((err) => setError(String(err)));
 
