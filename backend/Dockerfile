@@ -20,4 +20,4 @@ RUN apk del g++
 
 ADD . .
 
-CMD ["python3", "main.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi"]
