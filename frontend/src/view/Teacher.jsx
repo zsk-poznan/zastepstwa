@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import TeacherTable from '../components/TeacherTable';
 import TableTitle from '../components/TableTitle';
 import ErrorMessage from '../components/ErrorMessage';
-import url from '../config';
 
 const Teacher = () => {
   const { name } = useParams();
@@ -16,7 +15,7 @@ const Teacher = () => {
   // Here the substituions for the teacher will be downloaded from API
   useEffect(() => {
     axios
-      .get(`${url}/api/teacher/${name}`)
+      .get(`/api/teacher/${name}`)
       .then(({ data }) => data.data)
       .then((subs) => subs.sort((a, b) => (a.lesson_id > b.lesson_id ? 1 : -1)))
       .then((subs) => setSubstitutions(subs))

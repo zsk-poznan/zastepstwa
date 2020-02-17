@@ -1,22 +1,25 @@
 # -*- coding: utf-8 -*-
 
 import json
-from lxml import etree
 import codecs
+from bs4 import BeautifulSoup
 
 
 def main():
-    s = codecs.open("Zastępstwa.html", "r", "utf-8")  # Zastępstwa.html in main folder
-    table = etree.HTML(s.read()).find(
-        "body/table/tbody"
-    )  # on Windows we have to use "body/table" without /tbody
+    with codecs.open(
+        "Zastępstwa.html", "r", "utf-8"
+    ) as f:  # Zastępstwa.html in main folder
+        soup = BeautifulSoup(f.read(), "html.parser")
 
-    rows = list(table)
-    del rows[:2]  # deletes useless two first lines
+    rows = soup.find_all("tr")
+
+    data = [row.find_all("td") for row in rows]
+
+    del data[:2]  # deletes useless two first lines
 
     replacements = {}
 
-    for row in rows:
+    for row in data:
         lesson_info = [col.text for col in row]
         teacher = lesson_info.pop(
             5
