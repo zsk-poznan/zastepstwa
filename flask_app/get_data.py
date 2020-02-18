@@ -4,10 +4,11 @@ import json
 import codecs
 from bs4 import BeautifulSoup
 
+FILE = "Zastępstwa.html"
 
 def main():
     with codecs.open(
-        "Zastępstwa.html", "r", "utf-8"
+        FILE, "r", "utf-8"
     ) as f:  # Zastępstwa.html in main folder
         soup = BeautifulSoup(f.read(), "html.parser")
 
@@ -32,7 +33,7 @@ def main():
 
 def date():
     with codecs.open(
-        "Zastępstwa.html", "r", "utf-8"
+        FILE, "r", "utf-8"
     ) as f:  # Zastępstwa.html in main folder
         soup = BeautifulSoup(f.read(), "html.parser")
 
