@@ -1,18 +1,22 @@
 version: "3.5"
 services:
+  nginx:
+    image: nginx:1.17.7-alpine
+    volumes:
+      - ./nginx-dev.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 3000:80
   frontend:
     build:
       context: frontend
       dockerfile: Dockerfile.dev
     volumes:
       - ./frontend:/app
-    ports:
-      - 3000:3000
-  flask:
+  backend:
     build:
-      context: flask_app
+      context: backend
       dockerfile: Dockerfile.dev
     ports:
       - 5000:5000
     volumes:
-      - ./flask_app:/app
+      - ./backend:/app

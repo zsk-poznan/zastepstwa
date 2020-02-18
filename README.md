@@ -1,10 +1,7 @@
-# zastepstwa-gui
+# zastepstwa
 
-## Install dependencies
-
-```sh
-pip3 install -r requirements.txt
-```
+Web app for displaying substitute teachers. This app runs in teacher room in our
+school on Raspberry Pi with a touchscreen attached.
 
 ## Development
 
@@ -20,24 +17,33 @@ For more snippets type `make help`
 
 ## Deploy
 
-``` sh
-docker-compose -f production.yml up -d
+To deploy you need to have
+[ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+installed and ssh connection to the raspberry pi with raspbian installed. We
+initially were using [ngrok](https://ngrok.com) to have connection. You use [this
+service](ansible/ngrok-ssh.service) for this.
 
-# or
-make start-prod
+If there's a reason that you don't want forward ssh you could try [this](#no_ssh)
+
+### SSH
+
+Edit `ansible/hosts` to match your ssh configuration.
+
+``` sh
+ansible-galaxy install haxorof.docker_ce
+
+ansible-playbook ansible/deploy.yml
 ```
 
-### Raspberry Pi configuration
+> This process could take a while since it checks if every dependency is
+> installed. But thanks to that it's fully automatic so you don't need to do
+> anything (unless an error occurs 😜)
 
-> All files for rpi configuration you can find in `/raspbian` 
+### no_ssh
 
-We use RealVNC to connect to the rpi and also ngrok to have a ssh connection (`ngrok_ssh`).
+If you don't want to share ssh, there is a way to run ansible locally.
 
-On boot raspbian autologin to the `guest` user (`lightdm.conf`)
+* https://www.middlewareinventory.com/blog/run-ansible-playbook-locally/
+* https://superuser.com/questions/336226/how-to-ssh-to-localhost-without-password
 
-@latachz created a script for starting chromium and configuring screen saver. (`kiosk.sh`)
-
-In home `/home/guest/.config/autostart` we start this script on system start.
-
-Docker containers thanks to `restart: always` will automatically start.
-
+But it's easier if you have remote access.
