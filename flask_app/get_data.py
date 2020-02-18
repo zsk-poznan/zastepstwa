@@ -29,3 +29,16 @@ def main():
         else:
             replacements[teacher].append(lesson_info)
     return replacements
+
+def date():
+    with codecs.open(
+        "mocks/template.html", "r", "utf-8"
+    ) as f:  # Zastępstwa.html in main folder
+        soup = BeautifulSoup(f.read(), "html.parser")
+
+    h2 = soup.find_all("h2")
+    data = h2[0]
+    date = str(data.text).split(' ')[1]
+
+    return date
+    
