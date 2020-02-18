@@ -32,13 +32,12 @@ def main():
 
 def date():
     with codecs.open(
-        "mocks/template.html", "r", "utf-8"
+        "Zastępstwa.html", "r", "utf-8"
     ) as f:  # Zastępstwa.html in main folder
         soup = BeautifulSoup(f.read(), "html.parser")
 
-    h2 = soup.find_all("h2")
-    data = h2[0]
+    # it looks for <h2>Okres: 26.11.2019 (wt.) - 26.11.2019 (wt.)</h2> and takes date from it
+    data = soup.find("h2") 
     date = str(data.text).split(' ')[1]
-
-    return date
     
+    return date
