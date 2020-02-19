@@ -52,7 +52,7 @@ const Home = () => {
         Wszystkie zastępstwa
       </Link>
 
-      <SubstitutionDate/>
+      <SubstitutionDate />
     </div>
   );
 };

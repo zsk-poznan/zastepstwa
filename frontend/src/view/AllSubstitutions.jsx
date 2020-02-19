@@ -72,7 +72,7 @@ const AllSubstitutions = () => {
           <tbody>{substitutions.map(generateLessonRow)}</tbody>
         </StyledTable>
       )}
-      <SubstitutionDate/>
+      <SubstitutionDate />
     </div>
   );
 };

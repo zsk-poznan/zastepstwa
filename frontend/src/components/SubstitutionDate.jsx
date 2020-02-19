@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+import ErrorMessage from "./ErrorMessage";
+
 const SubstitutionDateWrapper = styled.div`
   position: fixed; 
   bottom: 0;
@@ -20,7 +22,14 @@ const SubstitutionDate = () => {
   }, []);
 
   return (
-    <SubstitutionDateWrapper>Zastępstwa z dnia: {date}</SubstitutionDateWrapper>
+    <>
+      <ErrorMessage error={error} />
+      <SubstitutionDateWrapper>
+        Zastępstwa z dnia: 
+        {' '}
+        {date}
+      </SubstitutionDateWrapper>
+    </>
   );
 };
 

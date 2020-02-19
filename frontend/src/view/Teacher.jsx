@@ -38,7 +38,7 @@ const Teacher = () => {
         <TeacherTable substitutions={substitutions} />
       )}
 
-      <SubstitutionDate/>
+      <SubstitutionDate />
     </div>
   );
 };
