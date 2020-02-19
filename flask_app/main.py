@@ -37,10 +37,12 @@ def get_all():
         all_substitutions += sorted(teacher_subs, key=lambda sub: sub["lesson_id"])
     return jsonify({"data": all_substitutions})
 
+
 @app.route("/api/date", methods=["GET"])
 def get_date():
     date = get_data.date()
     return jsonify({"date": date})
+
 
 @app.errorhandler(404)
 def not_found(error):
