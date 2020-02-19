@@ -6,6 +6,8 @@ import TableSeparator from '../components/TableSeparator';
 import TableTitle from '../components/TableTitle';
 import ErrorMessage from '../components/ErrorMessage';
 
+import SubstitutionDate from '../components/SubstitutionDate'
+
 const AllSubstitutions = () => {
   const [substitutions, setSubstitutions] = useState([]);
   const [error, setError] = useState(null);
@@ -70,6 +72,7 @@ const AllSubstitutions = () => {
           <tbody>{substitutions.map(generateLessonRow)}</tbody>
         </StyledTable>
       )}
+      <SubstitutionDate/>
     </div>
   );
 };
