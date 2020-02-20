@@ -12,21 +12,25 @@ const SubstitutionDateWrapper = styled.div`
 
 const SubstitutionDate = () => {
   const [date, setDate] = useState("");
+  const [error, setError] = useState(""); 
 
   useEffect(() => {
     axios
       .get(`/api/date`)
       .then(({ data }) => setDate(data.date))
-      .catch((err) => err);
+      .catch((err) => setError(err));
   }, []);
 
   return (
     <>
       <SubstitutionDateWrapper>
-        {date}
+        {error || (
+        date
+      )}
       </SubstitutionDateWrapper>
     </>
   );
+  
 };
 
 export default SubstitutionDate;

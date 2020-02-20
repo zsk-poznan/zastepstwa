@@ -6,7 +6,6 @@ import Header from './components/Header';
 import Teacher from './view/Teacher';
 import Home from './view/Home';
 import AllSubstitutions from './view/AllSubstitutions';
-import SubstitutionDate from './components/SubstitutionDate'
 
 const App = () => (
   <Router>
@@ -22,7 +21,6 @@ const App = () => (
         <AllSubstitutions />
       </Route>
     </Switch>
-    <SubstitutionDate />
   </Router>
 );
 

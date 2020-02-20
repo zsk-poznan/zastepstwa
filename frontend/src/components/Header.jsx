@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../assets/logo-zsk.svg';
+import SubstitutionDate from "./SubstitutionDate"
 
 const HeaderLink = styled(Link)`
   display: flex;
@@ -27,6 +28,7 @@ const Header = () => (
       <ImageWrapper src={logo} alt="ZSK" />
       <h1>Zastępstwa</h1>
     </HeaderLink>
+    <SubstitutionDate />
   </header>
 );
 
