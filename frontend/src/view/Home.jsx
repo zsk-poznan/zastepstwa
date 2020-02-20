@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import Button from '../components/Button';
 import ErrorMessage from '../components/ErrorMessage';
-import SubstitutionDate from '../components/SubstitutionDate'
 
 const Home = () => {
   const [teachers, setTeachers] = useState([]);
@@ -51,8 +50,6 @@ const Home = () => {
       >
         Wszystkie zastępstwa
       </Link>
-
-      <SubstitutionDate />
     </div>
   );
 };

@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import TeacherTable from '../components/TeacherTable';
 import TableTitle from '../components/TableTitle';
 import ErrorMessage from '../components/ErrorMessage';
-import SubstitutionDate from '../components/SubstitutionDate'
 
 const Teacher = () => {
   const { name } = useParams();
@@ -37,8 +36,6 @@ const Teacher = () => {
       ) : (
         <TeacherTable substitutions={substitutions} />
       )}
-
-      <SubstitutionDate />
     </div>
   );
 };
