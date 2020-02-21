@@ -24,9 +24,11 @@ const SubstitutionDate = () => {
   return (
     <>
       <SubstitutionDateWrapper>
-        {error || (
-        date
-      )}
+        {error ? (
+          <p style={{color: 'red', fontSize: '16px'}}>Nie udało się pobrać daty</p>
+        ) : (
+          date
+        )}
       </SubstitutionDateWrapper>
     </>
   );
