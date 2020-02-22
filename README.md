@@ -3,17 +3,15 @@
 Web app for displaying substitute teachers. This app runs in teacher room in our
 school on Raspberry Pi with a touchscreen attached.
 
-## Development
+## Contributing
 
-We use Docker for development.
+You will need to have [Docker](https://www.docker.com/get-started) installed and `make` for running snippets from `Makefile`.
 
-```sh
-make start # For starting the containers, you can access the site on http://localhost:5000
-make logs # To show the logs
-make stop # To stop all the containers
-```
+You can run `make start logs` to start the application in development mode. This could take a while since it ensures all dependencies are installed. After that, you should be able to visit the app on http://localhost:3000. The hot reloading is enabled.
 
-For more snippets type `make help`
+To stop the app run `make stop`.
+
+For more snippets type `make help` or view the `Makefile`.
 
 ## Deploy
 
