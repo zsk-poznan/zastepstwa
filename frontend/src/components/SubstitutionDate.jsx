@@ -12,13 +12,18 @@ const SubstitutionDateWrapper = styled.div`
 
 const SubstitutionDate = () => {
   const [date, setDate] = useState("");
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
+
+  const getData = () =>
+  axios
+    .get(`/api/date`)
+    .then(({ data }) => setDate(data.date))
+    .catch((err) => setError(String(err)));
 
   useEffect(() => {
-    axios
-      .get(`/api/date`)
-      .then(({ data }) => setDate(data.date))
-      .catch((err) => setError(err));
+    getData();
+    const refreshId = setInterval(getData, 60000);
+    return () => clearInterval(refreshId);
   }, []);
 
   return (
