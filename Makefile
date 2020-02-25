@@ -6,7 +6,7 @@ help:  ## Display this help
 	@echo ''
 
 start: ## Start all containers in background
-	@if ! [[ -d flask_app/venv ]]; then printf "\n\n\t It seems that you're running for the first time. This make take ~10-15 minutes so take a break. \n\n\n"; fi
+	@if ! [[ -d backend/venv ]]; then printf "\n\n\t It seems that you're running for the first time. This make take ~10-15 minutes so take a break. \n\n\n"; fi
 	docker-compose up --detach
 
 stop: ## Stop all containers
@@ -25,25 +25,10 @@ logs: ## Display logs from all containers
 
 # PRODUCTION
 
-start-prod: ## Start in production mode
+production: ## Run the latest version in production mode
+	docker-compose -f production.yml down
+	docker-compose -f production.yml pull
 	docker-compose -f production.yml up -d
-
-stop-prod: ## Stop containers in production mode
-	docker-compose -f production.yml stop
 
 logs-prod: ## Display logs from containers in production mode
 	docker-compose -f production.yml logs --tail 50 --follow
-
-remove-prod: ## Remove containers in production mode
-	docker-compose -f production.yml down
-
-# System setup
-
-install: ## Install docker and docker-compose
-	set -eu pipefail
-	sudo apt-get update -y
-	sudo apt-get upgrade -y
-	sudo apt-get install -y python3 python3-pip curl
-	curl -sSL https://get.docker.com | sh
-	pip3 install docker-compose
-	sudo usermod -aG docker $(USER)
