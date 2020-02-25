@@ -4,11 +4,11 @@ import json
 import codecs
 from bs4 import BeautifulSoup
 
+FILENAME = "Zastępstwa.html"
+
 
 def main():
-    with codecs.open(
-        "Zastępstwa.html", "r", "utf-8"
-    ) as f:  # Zastępstwa.html in main folder
+    with codecs.open(FILENAME, "r", "utf-8") as f:  # Zastępstwa.html in main folder
         soup = BeautifulSoup(f.read(), "html.parser")
 
     rows = soup.find_all("tr")
@@ -29,3 +29,14 @@ def main():
         else:
             replacements[teacher].append(lesson_info)
     return replacements
+
+
+def date():
+    with codecs.open(FILENAME, "r", "utf-8") as f:  # Zastępstwa.html in main folder
+        soup = BeautifulSoup(f.read(), "html.parser")
+
+    # it looks for <h2>Okres: 26.11.2019 (wt.) - 26.11.2019 (wt.)</h2> and takes date from it
+    data = soup.find("h2")
+    date = str(data.text).split(" ")[1]
+
+    return date
