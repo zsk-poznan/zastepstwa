@@ -1,5 +1,4 @@
 beautifulsoup4
-flask_cors
 gunicorn
 django
 psycopg2

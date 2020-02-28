@@ -9,3 +9,4 @@ class SubstitutionModel(models.Model):
   subject_name = models.CharField(max_length=30)
   classroom = models.CharField(max_length=30)
   substitute_teacher = models.CharField(max_length=30)
+  date = models.DateField()
