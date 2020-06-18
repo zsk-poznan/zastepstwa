@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "substitutions",
+  "info": {
+    "name": "Substitutions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "json": {
+      "type": "json"
+    }
+  }
+}

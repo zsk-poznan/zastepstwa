@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/substitutions",
+      "handler": "substitutions.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/substitutions/count",
+      "handler": "substitutions.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/substitutions/:id",
+      "handler": "substitutions.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/substitutions",
+      "handler": "substitutions.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/substitutions/:id",
+      "handler": "substitutions.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/substitutions/:id",
+      "handler": "substitutions.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

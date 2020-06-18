@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Teacher from './view/Teacher';
 import Home from './view/Home';
 import AllSubstitutions from './view/AllSubstitutions';
+import Announcement from './view/Announcement'
 
 const App = () => (
   <Router>
@@ -19,6 +20,9 @@ const App = () => (
       </Route>
       <Route path="/all">
         <AllSubstitutions />
+      </Route>
+      <Route path="/announcement">
+        <Announcement />
       </Route>
     </Switch>
   </Router>
