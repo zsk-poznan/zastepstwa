@@ -14,7 +14,7 @@ const Box = styled.div`
   font-size: 16px;
   cursor: pointer;
 
-  margin: 80px 0 20px;
+  margin: 5px 0 0;
 
 `;
 

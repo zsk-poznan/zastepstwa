@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import AnnouncementBox from '../components/AnnouncementBox';
 import ErrorMessage from '../components/ErrorMessage';
+import AnnouncementTitle from '../components/AnnouncementTitle';
 
 const Announcement = () => {
   const [announcement, setAnnouncement] = useState([]);
@@ -13,7 +14,7 @@ const Announcement = () => {
   useEffect(() => {
     axios
       .get('http://localhost:1337/announcements')
-      .then(({ data }) => setAnnouncement(data[0].text))
+      .then(({ data }) => setAnnouncement(data[0]))
       .catch((err) => setError(String(err)));
   }, []);
 
@@ -25,12 +26,14 @@ const Announcement = () => {
         alignItems: 'center',
       }}
     >
-      <AnnouncementBox content={announcement} />
+      <AnnouncementTitle title={announcement.name} />
+
+      <AnnouncementBox content={announcement.text} />
 
       <Link
         to="/"
         className="anchor"
-        style={{ marginTop: '20px', marginBottom: '40px' }}
+        style={{ marginTop: '30px', marginBottom: '40px' }}
       >
         Strona główna
       </Link>
