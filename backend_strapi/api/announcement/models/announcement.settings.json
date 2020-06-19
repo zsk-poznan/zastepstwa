@@ -16,7 +16,8 @@
       "type": "string"
     },
     "active": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "file": {
       "model": "file",

@@ -6,6 +6,12 @@ services:
       - ./nginx-dev.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 3000:80
+  postgres:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports: 5432:5432
+
   frontend:
     build:
       context: frontend
@@ -20,3 +26,17 @@ services:
       - 5000:5000
     volumes:
       - ./backend:/app
+  backend-strapi:
+    build:
+      context: backend-strapi
+      dockerfile: Dockerfile.dev
+    environment: 
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: zastepstwa_strapi
+      DATABASE_PORTL: 5432
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+    ports:
+      - 1337:1337
+    volumes:
+      ./backend-strapi:/app

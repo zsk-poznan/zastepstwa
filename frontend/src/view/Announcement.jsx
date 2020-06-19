@@ -13,7 +13,7 @@ const Announcement = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:1337/announcements')
+      .get('http://localhost:1337/announcements?active=true')
       .then(({ data }) => setAnnouncement(data[0]))
       .catch((err) => setError(String(err)));
   }, []);

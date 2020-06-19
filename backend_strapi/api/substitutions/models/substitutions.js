@@ -11,7 +11,6 @@ module.exports = {
   lifecycles: {
     async beforeCreate(data) {
       if (data.file) {
-        console.log(data)
         
         data.json = {"hello": "world"}
       }
@@ -22,7 +21,6 @@ module.exports = {
         // fs.readFile(`data.file.url`, (err, data) => {
         //   console.log(data)
         // })
-        console.log("Dziala")
         data.json = {"hello": "world"}
       }
     },
