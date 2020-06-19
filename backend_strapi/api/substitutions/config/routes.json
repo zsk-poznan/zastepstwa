@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/substitutions",
-      "handler": "substitutions.find",
+      "handler": "substitutions.index",
       "config": {
         "policies": []
       }
