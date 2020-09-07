@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 const Box = styled.div`
   background: #44546C;
@@ -24,5 +23,8 @@ const AnnouncementBox = ({ content }) => (
   </Box>
 );
 
+AnnouncementBox.propTypes = {
+  content: PropTypes.string.isRequired,
+};
 
 export default AnnouncementBox;

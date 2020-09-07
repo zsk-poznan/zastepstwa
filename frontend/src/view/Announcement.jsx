@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import Button from '../components/Button';
 import AnnouncementBox from '../components/AnnouncementBox';
-import ErrorMessage from '../components/ErrorMessage';
 import AnnouncementTitle from '../components/AnnouncementTitle';
 
 const Announcement = () => {
@@ -29,6 +27,7 @@ const Announcement = () => {
       <AnnouncementTitle title={announcement.name} />
 
       <AnnouncementBox content={announcement.text} />
+      {error}
 
       <Link
         to="/"

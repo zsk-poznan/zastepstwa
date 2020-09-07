@@ -20,9 +20,6 @@
     },
     "date": {
       "type": "date"
-    },
-    "json": {
-      "type": "json"
     }
   }
 }

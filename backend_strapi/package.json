@@ -12,8 +12,10 @@
   "devDependencies": {},
   "dependencies": {
     "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
     "https": "^1.0.0",
     "knex": "<0.20.0",
+    "react-dev-utils": "10.0.0",
     "slugify": "^1.4.0",
     "sqlite3": "latest",
     "strapi": "3.0.1",
