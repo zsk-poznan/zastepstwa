@@ -2,8 +2,32 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/substitutions",
+      "path": "/substitutions/index",
       "handler": "substitutions.index",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/substitutions/teachers",
+      "handler": "substitutions.teachers",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/substitutions/teacher/:slug",
+      "handler": "substitutions.teacher",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/substitutions",
+      "handler": "substitutions.find",
       "config": {
         "policies": []
       }
