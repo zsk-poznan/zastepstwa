@@ -15,10 +15,10 @@ const SubstitutionDate = () => {
   const [error, setError] = useState("");
 
   const getData = () =>
-  axios
-    .get(`/api/date`)
-    .then(({ data }) => setDate(data.date))
-    .catch((err) => setError(String(err)));
+    axios
+      .get(`http://localhost:1337/substitutions/date`)
+      .then(({ data }) => setDate(data.date))
+      .catch((err) => setError(String(err)));
 
   useEffect(() => {
     getData();
@@ -30,14 +30,14 @@ const SubstitutionDate = () => {
     <>
       <SubstitutionDateWrapper>
         {error ? (
-          <p style={{color: 'red', fontSize: '16px'}}>Nie udało się pobrać daty</p>
+          <p style={{ color: 'red', fontSize: '16px' }}>Nie udało się pobrać daty</p>
         ) : (
           date
         )}
       </SubstitutionDateWrapper>
     </>
   );
-  
+
 };
 
 export default SubstitutionDate;

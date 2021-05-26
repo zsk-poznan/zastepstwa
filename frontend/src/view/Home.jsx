@@ -11,7 +11,7 @@ const Home = () => {
 
   const getData = () =>
     axios
-      .get(`/api/teacher`)
+      .get(`http://localhost:1337/substitutions/teachers`)
       .then(({ data }) => setTeachers(data.data.map((name) => ({ name }))))
       .catch((err) => setError(String(err)));
 

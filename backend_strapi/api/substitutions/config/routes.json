@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/substitutions/teacher/:slug",
+      "path": "/substitutions/teacher/:name",
       "handler": "substitutions.teacher",
       "config": {
         "policies": []
@@ -28,6 +28,14 @@
       "method": "GET",
       "path": "/substitutions",
       "handler": "substitutions.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/substitutions/date",
+      "handler": "substitutions.date",
       "config": {
         "policies": []
       }

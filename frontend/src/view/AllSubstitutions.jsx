@@ -13,7 +13,7 @@ const AllSubstitutions = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/teacher/all`)
+      .get(`http://localhost:1337/substitutions/index`)
       .then(({ data }) => setSubstitutions(data.data))
       .catch((err) => setError(String(err)));
   }, []);

@@ -15,7 +15,7 @@ const Teacher = () => {
   // Here the substituions for the teacher will be downloaded from API
   useEffect(() => {
     axios
-      .get(`/api/teacher/${name}`)
+      .get(`http://localhost:1337/substitutions/teacher/${name}`)
       .then(({ data }) => data.data)
       .then((subs) => subs.sort((a, b) => (a.lesson_id > b.lesson_id ? 1 : -1)))
       .then((subs) => setSubstitutions(subs))
