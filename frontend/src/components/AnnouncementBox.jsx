@@ -10,21 +10,19 @@ const Box = styled.div`
   border-radius: 5px;
   padding: 20px 40px;
   width: 620px;
-  font-size: 16px;
+  font-size: 24px;
   cursor: pointer;
-
   margin: 5px 0 0;
-
 `;
 
 const AnnouncementBox = ({ content }) => (
-  <Box>
-    {content}
-  </Box>
+	<Box>
+		{content}
+	</Box>
 );
 
 AnnouncementBox.propTypes = {
-  content: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
 };
 
 export default AnnouncementBox;

@@ -8,17 +8,17 @@ const ErrorWrapper = styled.span`
 `;
 
 const ErrorMessage = ({ error }) => (
-  <ErrorWrapper>
-    <p style={{ fontSize: '2em' }}>Wystąpił błąd!</p>
-    <details>
-      <summary>Zobacz błąd</summary>
-      <p>{error}</p>
-    </details>
-  </ErrorWrapper>
+	<ErrorWrapper>
+		<p style={{ fontSize: '2em' }}>Wystąpił błąd!</p>
+		<details>
+			<summary>Zobacz błąd</summary>
+			<p>{error}</p>
+		</details>
+	</ErrorWrapper>
 );
 
 ErrorMessage.propTypes = {
-  error: PropTypes.string.isRequired,
+	error: PropTypes.string.isRequired,
 };
 
 export default ErrorMessage;

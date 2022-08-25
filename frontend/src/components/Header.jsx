@@ -23,13 +23,13 @@ const ImageWrapper = styled.img`
 `;
 
 const Header = () => (
-  <header>
-    <HeaderLink to="/">
-      <ImageWrapper src={logo} alt="ZSK" />
-      <h1>Zastępstwa</h1>
-    </HeaderLink>
-    <SubstitutionDate />
-  </header>
+	<header>
+		<HeaderLink to="/">
+			<ImageWrapper src={logo} alt="ZSK" />
+			<h1>Zastępstwa</h1>
+		</HeaderLink>
+		<SubstitutionDate />
+	</header>
 );
 
 export default Header;

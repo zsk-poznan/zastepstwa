@@ -9,23 +9,23 @@ import AllSubstitutions from './view/AllSubstitutions';
 import Announcement from './view/Announcement'
 
 const App = () => (
-  <Router>
-    <Header />
-    <Switch>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route path="/teacher/:name">
-        <Teacher />
-      </Route>
-      <Route path="/all">
-        <AllSubstitutions />
-      </Route>
-      <Route path="/announcement">
-        <Announcement />
-      </Route>
-    </Switch>
-  </Router>
+	<Router>
+		<Header />
+		<Switch>
+			<Route path="/" exact>
+				<Home />
+			</Route>
+			<Route path="/teacher/:name">
+				<Teacher />
+			</Route>
+			<Route path="/all">
+				<AllSubstitutions />
+			</Route>
+			<Route path="/announcement">
+				<Announcement />
+			</Route>
+		</Switch>
+	</Router>
 );
 
 export default App;

@@ -8,11 +8,11 @@ const H2 = styled.h2`
 `;
 
 const AnnouncementTitle = ({ title }) => (
-  <H2>{title}</H2>
+	<H2>{title}</H2>
 );
 
 AnnouncementTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 export default AnnouncementTitle;

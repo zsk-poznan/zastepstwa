@@ -25,17 +25,17 @@ const ButtonWrapper = styled.button`
 `;
 
 const Button = ({ children, redirect }) => (
-  <Link to={redirect}>
-    <ButtonWrapper>{children}</ButtonWrapper>
-  </Link>
+	<Link to={redirect}>
+		<ButtonWrapper>{children}</ButtonWrapper>
+	</Link>
 );
 
 Button.propTypes = {
-  redirect: PropTypes.string,
+	redirect: PropTypes.string,
 };
 
 Button.defaultProps = {
-  redirect: '/',
+	redirect: '/',
 };
 
 export default Button;

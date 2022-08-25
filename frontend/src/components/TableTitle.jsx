@@ -25,16 +25,16 @@ const StyledLink = styled(Link)`
 `;
 
 const TableTitle = ({ title }) => (
-  <TableTitleWrapper>
-    <StyledLink to="/">
-      <img src={ArrowBack} alt="Powrót" height="30" />
-    </StyledLink>
-    <H2>{title}</H2>
-  </TableTitleWrapper>
+	<TableTitleWrapper>
+		<StyledLink to="/">
+			<img src={ArrowBack} alt="Powrót" height="30" />
+		</StyledLink>
+		<H2>{title}</H2>
+	</TableTitleWrapper>
 );
 
 TableTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 export default TableTitle;
