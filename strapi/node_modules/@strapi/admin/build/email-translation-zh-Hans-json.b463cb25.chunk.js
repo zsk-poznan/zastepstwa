@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_strapi_admin=self.webpackChunk_strapi_admin||[]).push([[3043],{48746:s=>{s.exports=JSON.parse('{"SettingsNav.link.settings":"\u7535\u5B50\u90AE\u4EF6\u8BBE\u7F6E","SettingsNav.section-label":"\u7535\u5B50\u90AE\u4EF6\u63D2\u4EF6"}')}}]);

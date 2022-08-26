@@ -1,3 +1,0 @@
---recursive
-./test/**/*.js
---timeout 4000
