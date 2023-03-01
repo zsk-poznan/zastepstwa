@@ -4,8 +4,7 @@
   "info": {
     "singularName": "zastepstwa",
     "pluralName": "zastepstwas",
-    "displayName": "Zastepstwa",
-    "description": ""
+    "displayName": "Zastepstwa"
   },
   "options": {
     "draftAndPublish": true
@@ -13,21 +12,16 @@
   "pluginOptions": {},
   "attributes": {
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "file": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "subs": {
-      "type": "richtext"
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
     }
   }
 }

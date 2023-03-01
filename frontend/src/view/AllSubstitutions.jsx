@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import parse from 'html-react-parser';
 
 import PageButton from '../components/PageButton';
 import StyledTable from '../components/StyledTable';
 import TableSeparator from '../components/TableSeparator';
 import TableTitle from '../components/TableTitle';
 import ErrorMessage from '../components/ErrorMessage';
-
-/* eslint-disable no-unused-vars */
-/* eslint-disable indent */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-indent-props */
-/* eslint-disable no-console */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable react/no-danger */
-/* eslint-disable global-require */
-/* eslint-disable react/self-closing-comp */
 
 const AllSubstitutions = () => {
 	const [substitutions, setSubstitutions] = useState([]);
@@ -30,8 +19,8 @@ const AllSubstitutions = () => {
 		axios
 			.get(`http://localhost:1337/api/zastepstwas`)
 			.then(({ data }) => {
-				setSubstitutions.json(data.data.attributes.subs)
 				setCount(data.meta.pagination.total)
+				setSubstitutions(data.data.at(-1).attributes.file.data.at(-1).url)
 			})
 			.catch((err) => setError(String(err)));
 	}, []);
@@ -79,6 +68,7 @@ const AllSubstitutions = () => {
 				alignItems: 'center',
 			}}
 		>
+			{substitutions}
 			<TableTitle title="Wszystkie zastępstwa" />
 			{error ? (
 				<ErrorMessage error={error} />
@@ -96,8 +86,7 @@ const AllSubstitutions = () => {
 								<th>Nauczyciel</th>
 							</tr>
 						</thead>
-						<tbody>
-						</tbody>
+						<tbody />
 					</StyledTable>
 					{substitutions[currentIndex]}
 					<PageButton onClick={handlePagePrev} disabled={currentIndex === 0}>Poprzednie</PageButton>

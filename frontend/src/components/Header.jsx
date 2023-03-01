@@ -5,6 +5,9 @@ import styled from 'styled-components';
 import logo from '../assets/logo-zsk.svg';
 import SubstitutionDate from "./SubstitutionDate"
 
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent */
+
 const HeaderLink = styled(Link)`
   display: flex;
   flex-direction: row;
@@ -26,7 +29,7 @@ const Header = () => (
 	<header>
 		<HeaderLink to="/">
 			<ImageWrapper src={logo} alt="ZSK" />
-			<h1>Zastępstwa</h1>
+			<h1>Pokój nauczycielski</h1>
 		</HeaderLink>
 		<SubstitutionDate />
 	</header>

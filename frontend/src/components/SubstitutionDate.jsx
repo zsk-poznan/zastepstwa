@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import styled from "styled-components";
 
 const SubstitutionDateWrapper = styled.div`
-  position: absolute; 
+  position: absolute;
   top: 0;
   right: 0;
   margin: 30px;
@@ -13,34 +13,41 @@ const SubstitutionDateWrapper = styled.div`
 const SubstitutionDate = () => {
 	const [date, setDate] = useState([]);
 	const [error, setError] = useState([]);
-
-	const getData = () =>
-		axios
-			.get(`http://localhost:1337/api/zastepstwas`)
-			.then(({ data }) => setDate(data.data))
-			.catch((err) => setError(String(err)));
+	const [count, setCount] = useState(0);
 
 	useEffect(() => {
-		getData();
-		const refreshId = setInterval(getData, 60000);
+		axios
+			.get("http://localhost:1337/api/zastepstwas", {
+				params: { populate: "*" },
+			})
+			.then(({ data }) => {
+				setCount(data.meta.pagination.total);
+				setDate(data.data.at(-1).attributes.date);
+			})
+
+			.catch((err) => setError(String(err)));
+
+		const refreshId = setInterval(1000);
 		return () => clearInterval(refreshId);
 	}, []);
 
-	const today = new Date();
-	const todayDate = `${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}`;
+	const subDate = new Date(date);
+	const fullSubDate = `${subDate.getDate()}.${subDate.getMonth() +
+    1}.${subDate.getFullYear()} r.`;
 
-	return (
+	return !error ? (
 		<>
 			<SubstitutionDateWrapper>
-				{error ? (
-					todayDate
-				) : (
-					date
-				)}
+				{fullSubDate} 
+				{' '}
+				{count}
 			</SubstitutionDateWrapper>
 		</>
+	) : ( 
+		<>
+			<SubstitutionDateWrapper>{error}</SubstitutionDateWrapper>
+		</>
 	);
-
 };
 
 export default SubstitutionDate;
