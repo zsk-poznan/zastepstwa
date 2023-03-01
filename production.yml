@@ -13,3 +13,23 @@ services:
     volumes:
       - ./Zastępstwa.html:/app/Zastępstwa.html
     restart: always
+  postgres:
+    image: postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+  backend-strapi:
+    image: zskpoznan/zastepstwa_backend_strapi
+    environment: 
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: zastepstwa_strapi
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+    ports:
+      - 1337:1337
+    volumes:
+      - ./backend_strapi:/app

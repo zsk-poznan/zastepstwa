@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "announcements",
+  "info": {
+    "name": "Announcement"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "name": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

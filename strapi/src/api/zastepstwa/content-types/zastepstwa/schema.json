@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zastepstwas",
+  "info": {
+    "singularName": "zastepstwa",
+    "pluralName": "zastepstwas",
+    "displayName": "Zastepstwa"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "file": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

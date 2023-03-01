@@ -11,9 +11,9 @@ const TableSeparatorWrapper = styled.tr`
 `;
 
 const TableSeparator = () => (
-  <TableSeparatorWrapper>
-    <td colSpan="1024" />
-  </TableSeparatorWrapper>
+	<TableSeparatorWrapper>
+		<td colSpan="1024" />
+	</TableSeparatorWrapper>
 );
 
 export default TableSeparator;
