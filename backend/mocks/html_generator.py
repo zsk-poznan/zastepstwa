@@ -26,7 +26,7 @@ TEACHERS = generate_names(10) + DISMISSED_LESSON_NAMES
 
 
 def render(subs):
-    with codecs.open("template.html", "r", "utf-8") as f:
+    with codecs.open("mocks/template.html", "r", "utf-8") as f:
         template = Template(f.read())
 
     return template.render(subs=subs)
