@@ -12,7 +12,7 @@ const SubstitutionDateWrapper = styled.div`
 `;
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
-const API = "http://localhost:5000/api/date";
+const API = "/api/date";
 
 const SubstitutionDate = () => {
   const { data, error } = useSWR(API, fetcher);
