@@ -34,7 +34,8 @@ def get_all():
             {**create_sub(sub), "substitute_teacher": teacher}
             for sub in substitutions[teacher]
         ]
-        all_substitutions += sorted(teacher_subs, key=lambda sub: sub["lesson_id"])
+        all_substitutions += sorted(teacher_subs,
+                                    key=lambda sub: sub["lesson_id"])
     return jsonify({"data": all_substitutions})
 
 
