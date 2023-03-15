@@ -1,43 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
+import React from "react";
+import axios from "axios";
+import styled from "styled-components";
+import useSWR from "swr";
 
 const SubstitutionDateWrapper = styled.div`
-  position: absolute; 
+  position: absolute;
   top: 0;
   right: 0;
   margin: 30px;
   font-size: 30px;
 `;
 
+const fetcher = (url) => axios.get(url).then((res) => res.data);
+const API = "/api/date";
+
 const SubstitutionDate = () => {
-  const [date, setDate] = useState("");
-  const [error, setError] = useState("");
+  const { data, error } = useSWR(API, fetcher);
 
-  const getData = () =>
-  axios
-    .get(`/api/date`)
-    .then(({ data }) => setDate(data.date))
-    .catch((err) => setError(String(err)));
-
-  useEffect(() => {
-    getData();
-    const refreshId = setInterval(getData, 60000);
-    return () => clearInterval(refreshId);
-  }, []);
-
-  return (
-    <>
+  if (error)
+    return (
       <SubstitutionDateWrapper>
-        {error ? (
-          <p style={{color: 'red', fontSize: '16px'}}>Nie udało się pobrać daty</p>
-        ) : (
-          date
-        )}
+        <p style={{ color: "red", fontSize: "16px" }}>
+          Nie udało się pobrać daty
+        </p>
       </SubstitutionDateWrapper>
-    </>
-  );
-  
+    );
+
+  if (!data)
+    return <SubstitutionDateWrapper>Ładowanie...</SubstitutionDateWrapper>;
+
+  return <SubstitutionDateWrapper>{data.date}</SubstitutionDateWrapper>;
 };
 
 export default SubstitutionDate;
