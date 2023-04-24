@@ -1,5 +1,0 @@
-FROM strapi/strapi
-
-WORKDIR /app
-
-CMD ["./docker-entrypoint.sh"]

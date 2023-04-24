@@ -1,5 +1,0 @@
-flask
-jinja2
-beautifulsoup4
-flask_cors
-gunicorn
