@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "indent": [2, "tab", { "SwitchCase": 2, "VariableDeclarator": 2 }],
+    "no-tabs": 0,
+    "react/jsx-indent": [2, "space"],
+    "react/jsx-indent-props": [2, "tab"],
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }]
+  }
+}
