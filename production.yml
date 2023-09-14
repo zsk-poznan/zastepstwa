@@ -13,3 +13,4 @@ services:
     volumes:
       - ./Zastępstwa.html:/app/Zastępstwa.html
     restart: always
+    privileged: true
